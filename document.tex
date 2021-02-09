@@ -1,0 +1,164 @@
+\documentclass[wi]{zut}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{microtype}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+
+% Captions setup
+\captionsetup[figure]{labelfont=bf, font=small}
+\captionsetup[lstlisting]{labelfont=bf, font=small}
+\captionsetup[table]{labelfont=bf, font=small}
+\captionsetup[subfigure]{labelformat=empty, font=small, justification=centering}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+
+% My commands
+% https://tex.stackexchange.com/questions/429876/icons-on-side-of-text-below-section-headings/430016#430016
+% https://tex.stackexchange.com/questions/459221/how-to-add-an-icon-to-a-paragraphs-margin
+% https://tex.stackexchange.com/questions/87324/how-can-i-add-side-icons-in-a-latex-book
+\newcommand{\question}{
+    \marginpar{\includegraphics[scale=0.025]{graphic/question_mark.png}\hfill}
+}
+
+\author{Karol Działowski}
+\title{Pytania na obronę pracy magisterskiej}
+
+\makemetadata
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Wstęp}
+
+Poniższe opracowania były opracowywane indywidualnie i nie są oficjalnymi ani sprawdzonymi odpowiedziami na pytania. Na wiele pytań nie jestem pewien udzielonej odpowiedzi -- przy nich widnieje znak zapytania jak na przykładzie niżej.
+
+W tym akapicie przedstawiony jest schemat oznaczenia pytań co do których odpowiedzi nie mam pewności. Po prawej stronie będzie wklejona ikona znaku zapytania.
+\question
+
+Podczas opracowywania pytań starałem się tłumaczyć możliwie jak najogólniej powiązane zagadnienia. W wielu przypadkach też zamieściłem odnośniki do źródeł z których korzystałem podczas tworzenia z tego dokumentu.
+
+\section{Przedmioty wspólne}
+
+\subsection{Zasady cyfryzacji sygnałów. Prawo Kotielnikowa-Shannona. Granica Nyquisa. Aliasing.}
+
+\subsection{Bezpieczny schemat podpisu cyfrowego. Modele bezpieczeństwa.}
+
+\subsection{Idea interpolacji funkcji z wykorzystaniem funkcji sklejanych.}
+
+\subsection{Styl poznawczy (kognitywny) człowieka}
+
+\subsection{Korzyści wynikające z zastosowania grafowych baz danych do przetwarzania dużych zbiorów danych o strukturach grafowych}
+
+\subsection{Założenia i obszary zastosowania platformy Apache Spark}
+
+\subsection{Sposoby sprawdzenia właściwości losowych danego ciągu}
+
+\subsection{Filtracja cyfrowa: filtry SOI i NOI}
+
+\subsection{Reprezentacja sygnałów za pomocą szeregów funkcyjnych. Dyskretne transformacje ortogonalne oraz szybkie algorytmy ich wyznaczania.}
+
+\subsection{Atak na podpis cyfrowy wykorzystujący paradoks dnia urodzin}
+
+\subsection{Podział metod rozwiązywania równań liniowych metodami numerycznymi}
+
+\subsection{Algorytm numeryczny niestabilny a algorytm źle uwarunkowany}
+
+\subsection{Programowanie kodu wielowątkowego wraz z wzajemnym wykluczaniem w C++ 11 Threads}
+
+\subsection{Cechy środowiska Hadoop}
+
+\subsection{Rodzaje błędów składające się na całkowity błąd obliczeń numerycznych}
+
+\subsection{Standard C++ 17 Parallel}
+
+\subsection{Dokładność rozwiązywania równań różniczkowych metodami numerycznymi}
+
+\subsection{Wpływ zachowań z obszaru kognitywistyki relacji społecznych na rozwój mediów społecznościowych}
+
+\subsection{Programowanie przenośnego kodu wielowątkowego na przykładzie PosixThreads}
+
+\subsection{Zastosowanie okulografii w pięciu wybranych dziedzinach życia}
+
+\section{Inteligencja obliczeniowa}
+
+\subsection{Charakterystyka języków programowania wykorzystywanych w analizie danych}
+
+\subsection{Porównanie dwóch dowolnych algorytmów wykrywania obiektów}
+
+\subsection{Charakterystyka wybranych metod śledzenia obiektów}
+
+\subsection{Trzy pytania, na które odpowiadają Ukryte Modele Markowa oraz używane do tego celu algorytmy}
+
+\subsection{Cechy obiektów audio i metody ekstrakcji cech tych obiektów}
+
+\subsection{Przebieg uczenia ze wzmocnieniem i pozyskiwana w tym procesie wiedza}
+
+\subsection{Cechy charakterystyczne splotowych sieci neuronowych}
+
+\subsection{Podstawowe różnice między sygnałem mowy a sygnałem muzycznym w dziedzinie częstotliwości}
+
+\subsection{Meotdy próbkowania sieci złożonych}
+
+\subsection{Elementy składowe procesu klasyfikacji sygnałów akustycznych}
+
+\subsection{Model SVM (procedura uczenia, wariant liniowy i nieliniowy, przekształcenia jądrowe).}
+
+\subsection{Sieci perceptronowe i metody uczenia perceptronu (warianty algorytmów uczenia, głosowanie, zastosowania)}
+
+\subsection{Proces tworzenia zbioru uczącego, walidującego i testowego w głębokim uczeniu}
+
+\subsection{Sposób działania algorytmów uczących AdaBoost i RealBoost}
+
+\subsection{Omówienie na przykładzie algorytmu Apriori odkrywania asocjacji w zbiorach danych}
+
+\subsection{Przykład siedzi bayesowskiej (przekonań): struktura sieci, właściwości i jej interpretacja oraz uczenie}
+
+\subsection{Deskryptory cech niskopoziomowych - wybrane algorytmy w odniesieniu do wykorzystywanych cech}
+
+\subsection{Główne miary centralności w sieciach złożonych}
+
+\subsection{Pakiety języka Python wykorzystywane w analizie danych}
+
+\subsection{Techniki regularyzacji modeli klasyfikacyjnych i regresyjnych (regularyzacja L1, L2, elastic net; problemy optymalizacyjne; zastosowania)}
+
+
+\printbibliography[heading=bibintoc]
+
+\appendix
+
+\section{Przykłady do kopiowania}
+
+\begin{table}[H]
+\caption{Czas trwania jednej epoki dla rozmiaru obrazu}
+\vspace{1em}
+\centering
+\begin{tabular}{@{}lr@{}}
+\toprule
+Rozmiar          & Czas {[}s{]} \\ \midrule
+$32 \times 32$   & 0.1288       \\
+$64 \times 64$   & 0.2000       \\
+$128 \times 128$ & 1.046        \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\code{Przykład kodu}
+{Opracowanie własne}{\label{kod:przyklad}}
+\begin{lstlisting}[language=Python]
+discriminator = make_discriminator_model()
+generator = make_generator_model()
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/sample.png}
+    \vspace{1em}
+    \caption{Przykładowy obrazek}
+    \label{fig:pdgd}
+    \source{Opracowanie własne}
+\end{figure}
+
+
+\end{document}
