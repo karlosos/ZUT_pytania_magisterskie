@@ -73,8 +73,9 @@
 ]{geometry}
 
 % Paragraph indent 10mm, skip 0
-\setlength\parskip{0mm}%
-\setlength\parindent{10mm}%
+\setlength\parskip{0.5em}%
+%\setlength{\parskip}{1em}
+\setlength\parindent{0mm}%
 
 \setmainlanguage{polish}
 \setotherlanguage{english}
@@ -184,7 +185,7 @@
 	\lstinputlisting[#5]{./code/#4}
 }
 
-\setlength{\parskip}{0pt}%
+% \setlength{\parskip}{0pt}%
 %
 % Configure Listings -- END
 %
