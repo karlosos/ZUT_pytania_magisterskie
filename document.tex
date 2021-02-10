@@ -105,7 +105,7 @@ Podczas opracowywania pytań starałem się tłumaczyć możliwie jak najogólni
 
 % \subsection{Podstawowe różnice między sygnałem mowy a sygnałem muzycznym w dziedzinie częstotliwości}
 
-% \subsection{Meotdy próbkowania sieci złożonych}
+% \subsection{Metody próbkowania sieci złożonych}
 
 % \subsection{Elementy składowe procesu klasyfikacji sygnałów akustycznych}
 
@@ -123,7 +123,7 @@ Podczas opracowywania pytań starałem się tłumaczyć możliwie jak najogólni
 
 \subsection{Deskryptory cech niskopoziomowych - wybrane algorytmy w odniesieniu do wykorzystywanych cech}
 
-Deskryptory cech odnoszą się do zagadnienia ekstrakcji cech. Deskryptor opisuje daną cechę za pomocą wartości numerycznych. 
+Deskryptory cech odnoszą się do zagadnienia ekstrakcji cech. Deskryptor opisuje daną cechę za pomocą wartości numerycznych. Poniżej opisywano tylko deskryptory odnoszące się do obrazów. Oprócz tego istnieją inne deskryptory, np. w rozpoznawaniu dźwięku częstotliwość fundamentalna, formanty, itd.
 
 \textbf{Atrybuty niższego poziomu abstrakcji} - metadane typu sygnałowego, są wartościowane przez komputer (np. kolor dominujący, histogram krawędzi, aktywność ruchu w obrazie, czy linia melodyczna utworu muzycznego) \cite{Frejlichowski2020}.
 
@@ -220,9 +220,32 @@ Polega on na wstępnym preprocessingu (filtry), wyznaczeniu centroidu obrazu w s
 Alternatywny deskryptor polegał na przekształceniu biegunowym i rzutowaniu wartości. Rzutowanie to suma po kolumnach i suma po wierszach. Taki deskryptor daje na wyjściu dwa wektory. Dawał gorsze wyniki niż PFGD \cite{Frejlichowski2020_5}.
 
 
-% \subsection{Główne miary centralności w sieciach złożonych}
+\subsection{Główne miary centralności w sieciach złożonych}
 
-% \subsection{Pakiety języka Python wykorzystywane w analizie danych}
+Sieci złożone to nic innego jak rozbudowane grafy służące np. do modelowania społeczności, węzłów komunikacyjnych, infrastruktury itd. Mogą występować grafy skierowane lub nieskierowane.
+
+\textbf{Miary centralności} wyznaczają najważniejsze węzły w grafie ze względu na różne własności~\cite{Jankowski2020}. Wyróżniamy następujące miary:
+
+\begin{itemize}
+    \item Degree - stopień wierzchołka
+    \item Betweenness - ile razy węzeł stanowi pomost jako element najkrótszej ścieżki pomiędzy innymi węzłami sieci
+    \item Closeness - średnia długość najkrótszej ścieżki między węzłem, a wszystkimi innymi węzłami. Bardziej centralne węzły mają bliżej do wszystkich innych węzłów w sieci.
+    \item PageRank - zliczanie liczby i jakości linków do węzłów aby określić ważność węzła. Podstawowym założeniem jest to, że ważne węzły otrzymują więcej połączeń z innych ważnych węzłów.
+    \item Eigenvector
+\end{itemize}
+
+\subsection{Pakiety języka Python wykorzystywane w analizie danych}
+
+Najpopularniejsze pakiety Pythona wykorzystywane w analizie danych to:
+
+\begin{itemize}
+    \item \textbf{numpy} - wielowymiarowe macierze i operacje na tych strukturach
+    \item \textbf{scipy} - optymizacja, algebra liniowa, interpolacja, FFT, przetwarzanie sygnałów itd.
+    \item \textbf{pandas} - przetwarzanie danych i analiza. Struktury danych do manipulowania tabelami i szeregami czasowymi.
+    \item \textbf{matplotlib} - biblioteka do wizualizacji
+    \item \textbf{geopandas} - odpowiednik pandas (rozszerzenie) do danych przestrzennych
+    \item \textbf{sklearn} (scikit learn) - implementacje modeli uczenia maszynowego
+\end{itemize}
 
 % \subsection{Techniki regularyzacji modeli klasyfikacyjnych i regresyjnych (regularyzacja L1, L2, elastic net; problemy optymalizacyjne; zastosowania)}
 
