@@ -18,6 +18,9 @@
 \setlist[itemize]{noitemsep, topsep=0pt}
 \setlist[enumerate]{noitemsep, topsep=0pt}
 
+% Description
+\renewcommand*\descriptionlabel[1]{\hspace\leftmargin$#1$}
+
 % My commands
 % https://tex.stackexchange.com/questions/429876/icons-on-side-of-text-below-section-headings/430016#430016
 % https://tex.stackexchange.com/questions/459221/how-to-add-an-icon-to-a-paragraphs-margin
@@ -246,8 +249,50 @@ Najpopularniejsze pakiety Pythona wykorzystywane w analizie danych to:
     \item \textbf{sklearn} (scikit learn) - implementacje modeli uczenia maszynowego
 \end{itemize}
 
-% \subsection{Techniki regularyzacji modeli klasyfikacyjnych i regresyjnych (regularyzacja L1, L2, elastic net; problemy optymalizacyjne; zastosowania)}
+\subsection{Techniki regularyzacji modeli klasyfikacyjnych i regresyjnych (regularyzacja L1, L2, elastic net; problemy optymalizacyjne; zastosowania)}
 
+Ogólne podejście do problemu uczenia można zdefiniować następująco:
+
+\begin{equation}
+    Q(\theta \mid \mathscr{D})=L(\theta \mid \mathscr{D})+\gamma R(\theta)
+\end{equation}
+
+gdzie:
+
+\begin{description}
+\item[L(\theta \mid \mathscr{D})] to funkcja straty, błędu, dopasowanie modelu do danych,
+\item[R(\theta)] to kara za złożoność modelu,
+\item[\gamma] ustala kompromis pomiędzy dopasowaniem, a złożonością.
+\end{description}
+
+Regularyzacja to modyfikacja modelu, np. przez dodanie kary za złożoność, która ma na celu zmniejszenie błędu testowego zapobiegając zjawisku przeuczenia \cite{wiki:Regularization}.
+
+Regularyzacja jest konieczna gdy:
+
+\begin{itemize}
+    \item mamy pewną wiedzę na temat możliwych rozwiązań,
+    \item niejednoznaczność rozwiązania,
+    \item numeryczna niestabilność algorytmów \cite{Korzen2020_12}.
+\end{itemize}
+\question
+
+\textbf{Regularyzacja typu $L^1$ (lasso)} w modelach klasyfikacyjnych i regresyjnych stosujemy aby poprawić własności numeryczne algorytmów oraz gdy zależy nam na selekcji zmiennych w trakcie uczenia. Modele z taką regularyzacją są rzadkie, to znaczy, współczynniki przy wielu atrybutach są zerowe. Jest to zjawisko dobre w przypadku, gdy chcemy dokonać selekcji zmiennych -- mało jest atrybutów istotnych i dużo szumu.
+
+\textbf{Regularyzacja typu $L^2$ (ridge)} w modelach klasyfikacyjnych i regresyjnych również sotsujemy aby poprawić własności numeryczne algorytmów oraz w przypadkach, gdy dane zawierają wiele zmiennych skorelowanych.
+
+Model ElasticNet łączy regularyzację $L^1$ oraz regularyzację $L^2$ \cite{wiki:Elastic_net_regularization}. 
+
+Nie wiem jakie są problemy optymalizacyjne tych technik regularyzacji.
+\question
+
+Podsumowując:
+
+\begin{itemize}
+    \item składnik straty $L(\theta \mid \mathscr{D})$ jest mniej istotny,
+    \item składnik związany z regularyzacją $R(\theta)$ prowadzi do różnych jakościowo modeli,
+    \item $L^1$ jest dobry, gdy mało jest atrybutów istotnych i dużo szumu (bardzo dobry mechanizm selekcji), oraz gdy jest mało danych,
+    \item $L^2$ jest dobry, gdy dużo jest atrybutów istotnych i dużo korelacji \cite{Korzen2020_12}.
+\end{itemize}
 
 \printbibliography[heading=bibintoc]
 
