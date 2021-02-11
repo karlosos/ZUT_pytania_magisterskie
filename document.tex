@@ -108,7 +108,35 @@ Podczas opracowywania pytań starałem się tłumaczyć możliwie jak najogólni
 
 % \subsection{Podstawowe różnice między sygnałem mowy a sygnałem muzycznym w dziedzinie częstotliwości}
 
-% \subsection{Metody próbkowania sieci złożonych}
+\subsection{Metody próbkowania sieci złożonych}
+
+To jest dziwne, bo to pytanie z przedmiotu \emph{Duże zbiory danych}, które były przedmiotem wspólnym.
+
+Próbkowanie i agregacja dają możliwość rozwiązaniem problemu bardzo dużych zbiorów grafowych. Przykładowo chcąc analizować sieć połączeń na Facebooku, reprezentowaną przez ponad 1 miliard węzłów, potrzebowalibyśmy 1TB pamięci aby zapisać same relacje w postaci grafu, bez atrybutów, etykiet i treści~\cite{Jankowski2020_probkowanie}. 
+
+W próbkowaniu sieci informacja o węzłach jest pozyskiwana dopiero po pobraniu danej próbki, \textbf{struktura całej sieci nie jest znana}. Wymagana jest strategia eksploracji sieci i stopniowego powiększania próbki. Celem próbkowania jest stopniowa identyfikacja małego zbioru przedstawicieli węzłów i powiązań ze struktury sieciowej, przy posiadanej niewielkiej wiedzy o całej sieci. W skrócie jest to uogólnienie sieci, stworzenie modelu sieci, która zachowuje \textbf{niektóre właściwości} sieci pierwotnej~\cite{Jankowski2020_probkowanie}. 
+
+Przy agregacji cała struktura sieci musi być znana apriori. Celem agregacji są miary, które umożliwiają opis własności sieci na poziomie ogólnym~\cite{Jankowski2020_probkowanie}. 
+
+W próbkowaniu sieci homogenicznych (jednorodnych) wyróżniamy dwie główne strategie:
+
+\begin{itemize}
+    \item Wybór węzłów lub krawędzi o zadanych właściwościach
+    \begin{itemize}
+        \item Losowy wybór węzłów
+        \item Na podstawie stopnia wierzchołka (prawdopodobieństwo proporcjonalne do stopnia)
+        \item Na podstawie miary PageRank
+    \end{itemize}
+    \item Pobieranie próbek w procesie eksploracji
+    \begin{itemize}
+        \item Random Walk - rekurencyjnie wybierany losowo tylko jeden z sąsiadów
+        \item Snowball sampling - rekurencyjnie włączamy $n$ sąsiadów
+        \item Poszukiwanie wzorców
+    \end{itemize}
+\end{itemize}
+
+W sieciach heterogenicznych (niejednorodnych) możemy skorzystać z \emph{multi-graph sampling}, pobierania próbek z zachowaniem rozkładu typów, próbkowania z zachowaniem relacji~\cite{Jankowski2020_probkowanie}.
+
 
 % \subsection{Elementy składowe procesu klasyfikacji sygnałów akustycznych}
 
