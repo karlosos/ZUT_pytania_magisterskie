@@ -417,4 +417,31 @@
 		\reset@font\small Źródło:~#1%
 	\end{flushleft}
 }
+
+
+\RequirePackage{subcaption}
+
+% Captions setup
+\captionsetup[figure]{labelfont=bf, font=small}
+\captionsetup[lstlisting]{labelfont=bf, font=small}
+\captionsetup[table]{labelfont=bf, font=small}
+\captionsetup[subfigure]{labelformat=empty, font=small, justification=centering}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+
+% Enumerations setup
+\RequirePackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt}
+
+% Description
+\renewcommand*\descriptionlabel[1]{\hspace\leftmargin$#1$}
+
+% TOC depth
+\setcounter{tocdepth}{2}
+
+% Question icon
+\newcommand{\question}{
+    \marginpar{\includegraphics[scale=0.025]{graphic/question_mark.png}\hfill}
+}
+
 \endinput
