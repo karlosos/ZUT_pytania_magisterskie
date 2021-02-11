@@ -20,6 +20,7 @@
 \RequirePackage{unicode-math}
 %\RequirePackage[math-style=ISO]{unicode-math}
 \RequirePackage{polyglossia}
+\RequirePackage{parskip}
 \RequirePackage{listings}
 \RequirePackage{float}
 \RequirePackage{booktabs}
@@ -73,7 +74,7 @@
 ]{geometry}
 
 % Paragraph indent 10mm, skip 0
-\setlength\parskip{0.5em}%
+\setlength\parskip{1em}%
 %\setlength{\parskip}{1em}
 \setlength\parindent{0mm}%
 
@@ -401,7 +402,7 @@
 \def\indexspace{\par\vskip 10pt plus 5pt minus 3pt\relax}%}
 %\indexemdashes
 
-\setlength\abovecaptionskip{-5\p@}
+\setlength\abovecaptionskip{0em}
 \setlength\belowcaptionskip{0\p@}
 
 \renewcommand{\@makecaption}[2]{
@@ -411,7 +412,7 @@
 }
 
 \newcommand*{\source}[1]{
-	\par\vspace{-.7\baselineskip}
+	\par
 	\begin{flushleft}
 		\reset@font\small Źródło:~#1%
 	\end{flushleft}
