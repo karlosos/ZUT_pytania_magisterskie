@@ -72,7 +72,40 @@ Podczas opracowywania pytań starałem się tłumaczyć możliwie jak najogólni
 
 % \subsection{Charakterystyka wybranych metod śledzenia obiektów}
 
-% \subsection{Trzy pytania, na które odpowiadają Ukryte Modele Markowa oraz używane do tego celu algorytmy}
+\subsection{Trzy pytania, na które odpowiadają Ukryte Modele Markowa oraz używane do tego celu algorytmy}
+
+Na początku warto przypomnieć co to Ukryte Modele Markowa. Model Markowa składa się z $N$ stanów $S$, które są ukryte oraz $M$ obserwacji $V$. Podobnie jak w łańcuchu Markowa w każdym momencie czasowym model może być w jednym stanie. Prawdopodobieństwa przejścia pomiędzy stanami zależą tylko od stanu poprzedniego. Dla każdego stanu system generuje obserwacje z danym prawdopodobieństwem \cite{Pietrzykowski2020}. 
+
+Modele Markowa są dobre do rozpoznawania zmiennych wzorców, np. mowa, pismo odręczne, gesty, predykcja genów itd.\cite{Pietrzykowski2020}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/hidden_markov.png}
+    %\vspace{1em}
+    \caption{Przykładowe reprezentacja Ukrytego Modelu Markowa. Prostokąty to obserwacje, kółka to stany ukryte.}
+    \label{fig:pdgd}
+    \source{M. Pietrzykowski. Wykład 4 - Ukryte Modele Markowa. \cite{Pietrzykowski2020}}
+\end{figure}
+
+\subsubsection{Mając sekwencję obserwacji $O = (O_1, O_2, \ldots, O_T)$ i model $\lambda = (A, B, \pi)$ jakie jest prawdopodobieństwo tej sekwencji pod warunkiem tego modelu, czyli $P(O|\lambda)$}
+
+Prawdopodobieństwo $P(O|\lambda)$ musi być wyznaczone używając formuła na całkowite prawdopodobieństwo, tj. brać pod uwagę wszystkie możliwe ścieżki stanów. Takie przeszukiwanie w sposób zachłanny jest niemożliwe w praktyce. Złożoność obliczeniowa wynosi $O(TN^T)$\cite{Pietrzykowski2020}. 
+
+W praktyce to zadanie rozwiązuje się za pomocą algorytmu \textbf{Forward-Backward}. Jego złożoność jest rzędu $O(TN^2)$\cite{Pietrzykowski2020}.
+
+\subsubsection{Mając sekwencję obserwacji $O = (O_1, O_2, \ldots, O_T)$ i model $\lambda = (A, B, \pi)$ jak dobieramy najlepszą sekwencję stanów $Q = (q_1, q_2, \ldots, q_T)$, która odpowiada sekwencji obserwacji O?}
+
+Mając sekwencję obserwacji należy odpowiedzieć jaka jest najbardziej prawdopodobna sekwencja stanów ukrytych uwzględniając model (tj. prawdopodobieństwa przejść oraz prawdopodobieństwa obserwacji).
+
+Aby odpowiedzieć na to pytanie używamy algorytmu \textbf{Viterbiego} bazujący na metodach programowania dynamicznego. Jego celem jest znalezienie jednego najlepszej sekwencji stanów, która maksymalizuje $P(Q, O|\lambda)$~\cite{Pietrzykowski2020}.
+
+\subsection{Mając sekwencję obserwacji $O = (O_1, O_2, \ldots, O_T)$ i znając tylko $M$ i $N$ (liczba obserwacji i stanów) jak stroić model?}
+
+Jak dobrać najlepsze zmienne modelu $\lambda = (A, B, \pi)$ aby zmaksymalizować $P(O|\lambda)$?
+
+Mamy sekwencję obserwacji, wiedząc ile ma być stanów i obserwacji jak nastroić model?
+
+Jest to najtrudniejszy z problemów. W tym celu używa się podejścia iteracyjnego nazwanego \textbf{metodą Bauma-Welcha}~\cite{Pietrzykowski2020}.
 
 % \subsection{Cechy obiektów audio i metody ekstrakcji cech tych obiektów}
 
