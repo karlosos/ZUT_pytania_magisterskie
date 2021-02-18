@@ -111,7 +111,42 @@ Jest to najtrudniejszy z problemów. W tym celu używa się podejścia iteracyjn
 
 % \subsection{Przebieg uczenia ze wzmocnieniem i pozyskiwana w tym procesie wiedza}
 
-% \subsection{Cechy charakterystyczne splotowych sieci neuronowych}
+\subsection{Cechy charakterystyczne splotowych sieci neuronowych}
+
+\textbf{Convolution Neural Networks} (CNN, ConvNet) to wariant MLP inspirowany biologicznie, gdzie mnożenie wag i sygnału wejściowe zastąpione jest operacją \textbf{splotu} \cite{Forczmanski2020}.
+
+Cechami charakterystycznymi splotowych sieci są:
+
+\begin{itemize}
+    \item rzadka reprezentacja
+    \item współdzielone wagi
+    \item pooling (zmniejszanie rozdzielczości, np. wybierając maksymalną wartość z danego sąsiedztwa)
+\end{itemize}
+
+Sieci te potrafią stopniowo filtrować różne części danych i wyostrzać ważne fragmenty w procesie dyskryminacji (rozpoznawanie/klasyfikacja wzorców) \cite{Forczmanski2020}.
+
+Sieci splotowe są łatwiejsze do uczenia, gdyż zawierają mniej parametrów (wykorzystują te same wagi) niż typowe sieci neuronowe \cite{Forczmanski2020}. 
+
+Wykorzystywanie głównie do obliczeń na strukturach dwuwymiarowych (np. obrazy) \cite{Forczmanski2020}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/cnn.jpeg}
+    %\vspace{1em}
+    \caption{Przykładowe architektura sieci splotowej.}
+    \label{fig:cnn}
+    \source{\url{https://datasciencepr.com/convolutional-neural-network/}}
+\end{figure}
+
+Pojedynczy neuron (jednostka obliczeniowa) w sieciach splotowych definiuje się za pomocą:
+
+\begin{itemize}
+    \item szerokości,
+    \item wysokości,
+    \item głębokości (liczba filtrów),
+    \item stride (krok przesunięcia filtru) \cite{Forczmanski2020}.
+\end{itemize}
+
 
 % \subsection{Podstawowe różnice między sygnałem mowy a sygnałem muzycznym w dziedzinie częstotliwości}
 
