@@ -270,12 +270,32 @@ W sieciach heterogenicznych (niejednorodnych) możemy skorzystać z \emph{multi-
 % TODO
 % Przemysław Klęsk. Uczenie maszynowe 2.
 
-% \subsection{Omówienie na przykładzie algorytmu Apriori odkrywania asocjacji w zbiorach danych}
+\subsection{Omówienie na przykładzie algorytmu Apriori odkrywania asocjacji w zbiorach danych}
+% Joanna Kołodziejczyk. Eksploracja danych.
+
+Algorytm Apriori opiera się na własności, że wszystkie podzbiory częstego zbioru przedmiotów również muszą być częste. Przykładowo, w transakcjach często występuje reguła: bułka, ser żółty, pomidor $\rightarrow$ szynka, to wszystkie elementy tej reguły też często występują w zbiorze transakcji \cite{Kolodziejczyk2020}.
+
+Algorytm Apriori jest przeznaczony do znajdowania wzorców w dużych zbiorach danych. Jeśli jakieś wzór występuje często, to jest on uważany za ,,interesujący'' \cite{Kolodziejczyk2020}.
+
+Algorytm składa się z dwóch etapów: znajdowania częstych wzorców z wykorzystaniem progu minimalnego wsparcia, oraz znajdowaniem odpowiednich reguł z progiem minimalnego zaufania. Generowanie kandydatów do wzorców można przeprowadzić metodą brute-force, albo metodami $F_{k-1} \times F_1$, lub $F_{k-1} \times F_{k-1}$. Metoda brute-force nie sprawdzi się w bardzo dużych zbiorach danych.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/apriori.png}
+    \caption{Przedstawienie reguły Apriori. Jeżeli zbiór $\{c, d, e\}$ jest częsty, to wszystkie podzbiory też są częste.}
+    \label{fig:apriori}
+    \source{\url{https://www-users.cs.umn.edu/~kumar001/dmbook/ch5_association_analysis.pdf}}
+\end{figure}
+
+
+Na początku tworzymy zbiór potencjalnych wzorców jednoelementowych z danym progiem wsparcie. Wyszukiwanie przeprowadzamy iteracyjnie zwiększając wielkości zbiorów. 
+
+Mając wygenerowane potencjalne wzorce z pierwszego kroku należy wygenerować reguły z zaufaniem większym niż ustalony minimalny próg wsparcia. Wygenerowane reguły należy posortować malejąco na podstawie metryki \emph{lift}.
+
 % TODO
 % Joanna Kołodziejczyk. Eksploracja danych.
 
 \subsection{Przykład siedzi bayesowskiej (przekonań): struktura sieci, właściwości i jej interpretacja oraz uczenie}
-% TODO
 % Joanna Kołodziejczyk. Eksploracja danych.
 
 Sieć Bayesowska (sieć przekonań) jest probabilistycznym modelem grafowym, który reprezentuje zbiór zmiennych i ich zależności warunkowych za pomocą acyklicznego grafu. Sieci Bayesowskie są dobre do przewidywania zdarzeń zależnych (obliczania \emph{likelihood} \cite{wiki:Likelihood_function}) na podstawie zdarzenia zaobserwowanego 
@@ -290,6 +310,9 @@ Sieć Bayesowska (sieć przekonań) jest probabilistycznym modelem grafowym, kt�
     \source{Opracowanie własne}
 \end{figure}
 
+
+Na laboratorium wykorzystywaliśmy bibliotekę \emph{bnlearn}\footnote{\url{https://www.bnlearn.com/documentation/man/bn.fit.html}} do tworzenia sieci i ich uczenia. Aby nauczyć sieć wprowadzaliśmy prawdopodobieństwa warunkowe zdarzeń.
+\question
 
 \subsection{Deskryptory cech niskopoziomowych - wybrane algorytmy w odniesieniu do wykorzystywanych cech}
 % Dariusz Frejlichowski. Ekstrakcja cech.
