@@ -266,9 +266,22 @@ W sieciach heterogenicznych (niejednorodnych) możemy skorzystać z \emph{multi-
 % TODO
 % Paweł Forczmański. Uczenie maszynowe 2.
 
-% \subsection{Sposób działania algorytmów uczących AdaBoost i RealBoost}
-% TODO
+\subsection{Sposób działania algorytmów uczących AdaBoost i RealBoost}
 % Przemysław Klęsk. Uczenie maszynowe 2.
+
+Algorytmy z rodziny boosting polegają na reważeniu przykładów uczących. Ich zasadniczą cechą jest odporność na przeuczenie.
+
+Klasyfikator boosting składa się z wielu słabych klasyfikatorów. Najczęściej łączy się je z \emph{decision stump} - bardzo zdegenerowane drzewa decyzyjnego, lub innymi wariantami klasyfikatorów (drzewa decyzyjne, SVM, naiwny Bayes) \cite{Klesk2020}.
+
+Uczenie klasyfikatora składa się z wielu rund. W każdej iteracji uczony jest słaby klasyfikator na danych uczących używając ważonych przykładów. Wagi przykładów aktualizuje się tak, że najważniejsze stają się próbki źle sklasyfikowane \cite{Klesk2020}.
+
+W pojedynczej rundzie wybór słabego klasyfikatora odbywa się teoretycznie według dowolnego obranego kryterium błędu. Najczęściej rozważa się minimalizację błędu klasyfikacji lub minimalizację kryterium wykładniczego \cite{Klesk2020}.
+
+Wystarczy że słabe klasyfikatory będą dawać odpowiedzi różne od 0.5. Gdy dokładność klasyfikatora jest mniejsza niż 0.5 to odpowiedź klasyfikatora jest negowana.
+
+Rozwinięciem AdaBoost jest RealBoost. Słabe klasyfikatory są rzeczywistoliczbowe a nie binarne jak w Adaboost. Odpowiedź słabego klasyfikatora jest zwykle ustalana jako przybliżenie połowy przekształcenia logit. Rezygnuje się ze współczynników ważących słabe klasyfikatory. Mechanizm ważenia klasyfikatorów jest wpleciony w same odpowiedzi rzeczywistoleiczbowe \cite{Klesk2020}.
+\question
+
 
 \subsection{Omówienie na przykładzie algorytmu Apriori odkrywania asocjacji w zbiorach danych}
 % Joanna Kołodziejczyk. Eksploracja danych.
@@ -291,9 +304,6 @@ Algorytm składa się z dwóch etapów: znajdowania częstych wzorców z wykorzy
 Na początku tworzymy zbiór potencjalnych wzorców jednoelementowych z danym progiem wsparcie. Wyszukiwanie przeprowadzamy iteracyjnie zwiększając wielkości zbiorów. 
 
 Mając wygenerowane potencjalne wzorce z pierwszego kroku należy wygenerować reguły z zaufaniem większym niż ustalony minimalny próg wsparcia. Wygenerowane reguły należy posortować malejąco na podstawie metryki \emph{lift}.
-
-% TODO
-% Joanna Kołodziejczyk. Eksploracja danych.
 
 \subsection{Przykład siedzi bayesowskiej (przekonań): struktura sieci, właściwości i jej interpretacja oraz uczenie}
 % Joanna Kołodziejczyk. Eksploracja danych.
