@@ -262,9 +262,20 @@ W sieciach heterogenicznych (niejednorodnych) możemy skorzystać z \emph{multi-
 % TODO
 % Marcin Korzeń. Uczenie maszynowe 1.
 
-% \subsection{Proces tworzenia zbioru uczącego, walidującego i testowego w głębokim uczeniu}
-% TODO
+\subsection{Proces tworzenia zbioru uczącego, walidującego i testowego w głębokim uczeniu}
 % Paweł Forczmański. Uczenie maszynowe 2.
+
+Przygotowanie zbioru danych jest niezbędne w uczeniu maszynowym. Zbiór danych najczęściej jest podzielony na zbiór uczący, zbiór testowy i zbiór walidujący. 
+
+Zbiór uczący jest wykorzystywany do uczenia modelu. Jest on największy ze wszystkich. Przede wszystkich w głębokim uczeniu wymagane są duże ilości próbek uczących.
+
+Zbiór walidujący wykorzystywany jest do testowania na etapie tworzenia i implementacji modeli. Wykorzystywany jest to oceniania modeli z różnymi hyperparametrami. 
+
+Zbiór testowy powinien zostać użyty tylko raz, na końcu całego procesu implementacji modelu. Wykorzystywany jest do przetestowania skuteczności stworzonego rozwiązania. 
+
+W przypadku braku wystarczającej liczby danych uczących można korzystać z kroswalidacji. Wykorzystuje się ją najczęściej w metodach klasycznych. W głębokim uczeniu metoda kroswalidacji nie jest wykorzystywana ze względu na długie czasy uczenia modeli.
+
+W głębokim uczeniu rozmiar próby uczącej powiększa się za pomocą augmentacji. W przypadku obrazów może to być odbijanie w poziomie, rozjaśnianie, kadrowanie, itd.
 
 \subsection{Sposób działania algorytmów uczących AdaBoost i RealBoost}
 % Przemysław Klęsk. Uczenie maszynowe 2.
