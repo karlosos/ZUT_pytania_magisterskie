@@ -261,7 +261,28 @@ W sieciach heterogenicznych (niejednorodnych) możemy skorzystać z \emph{multi-
 \subsection{Sieci perceptronowe i metody uczenia perceptronu (warianty algorytmów uczenia, głosowanie, zastosowania)}
 % Marcin Korzeń. Uczenie maszynowe 1.
 
-\cite{Korzen2020_8}
+Sieć perceptronowa składa się z pojedynczej warstwy neuronów. Jako funkcja aktywacji wykorzystywana jest bipolarna progowa funkcja aktywacji. Peceptron zbiega w skończonej liczbie iteracji do rozwiązania gdy dane są liniowo separowalne (twierdzenie Novikoffa). Do uczenia perceptronu wykorzystuje się regułę perceptronu \cite{Korzen2020_8}.
+
+ Z matematycznego punktu widzenia wagi perceptronu tworzą wektor normalny, który określa prostą (w przypadku dwóch wejść) lub hiperpłaszczyznę decyzyjną \cite{wiki:Perceptron}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/perceptron.png}
+    \caption{Wizualizacja perceptronu.}
+    \label{fig:apriori}
+    \source{Uczenie Maszynowe 1, Wykład VII - Perceptron \cite{Korzen2020_8}}
+\end{figure}
+
+Uczenie perceptronu przebiega zgodnie z \textbf{regułą perceptronu}. W skrócie, polega ona na korygowaniu wag w przypadku gdy próbka została źle sklasyfikowana. 
+
+Inne warianty uczenia perceptronu to uczenie perceptronu z $\gamma$-marginesem, voted perceptron czy average perceptron.
+
+Wariant z $\gamma$-marginesem polega na tym, że wagi są korygowane wtedy gdy próbka przekracza obrany margines (nie jak wcześniej czy jest źle klasyfikowana).
+
+\textbf{Perceptron z głosowaniem} polega na tworzeniu wielu perceptronów (zestawów wag). Dla każdego zestawu wag przechowywany jest licznik, który opisuje ile próbek zostało dobrze sklasyfikowanych aż wagi należało poprawić. W procesie predykcji wybieramy głosem większościowym odpowiedzieć klasyfikatora. W \textbf{wersji average perceptron} różnica występuje tylko w odpowiedzi klasyfikatora. Gdzie wybierana jest średnia ze wszystkich klasyfikatorów.
+\question
+
+
 
 
 \subsection{Proces tworzenia zbioru uczącego, walidującego i testowego w głębokim uczeniu}
