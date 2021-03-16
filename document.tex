@@ -22,7 +22,7 @@ W tym akapicie przedstawiony jest schemat oznaczenia pytań co do których odpow
 
 Podczas opracowywania pytań starałem się tłumaczyć możliwie jak najogólniej powiązane zagadnienia. W wielu przypadkach też zamieściłem odnośniki do źródeł z których korzystałem podczas tworzenia z tego dokumentu.
 
-% \section{Przedmioty wspólne}
+\section{Przedmioty wspólne}
 
 % \subsection{Zasady cyfryzacji sygnałów. Prawo Kotielnikowa-Shannona. Granica Nyquisa. Aliasing.}
 % TODO
@@ -60,9 +60,34 @@ Podczas opracowywania pytań starałem się tłumaczyć możliwie jak najogólni
 % TODO
 % Aleksandr Cariow. Cyfrowe przetwarzanie sygnałów.
 
-% \subsection{Atak na podpis cyfrowy wykorzystujący paradoks dnia urodzin}
-% TODO
+\subsection{Atak na podpis cyfrowy wykorzystujący paradoks dnia urodzin}
 % Tomasz Hyla. Kryptologia.
+
+Paradoks dnia urodzin odnosi się do prawdopodobieństwa tego, że w zbiorze $n$ losowo wybranych ludzi będzie para, która ma urodziny tego samego dnia. W grupie liczącej 23 osoby to prawdopodobieństwo wynosi 50\%, a grupa 70 osób ma 99.9\% prawdopodobieństwa występowania takiej pary \cite{wiki:Birthday_problem}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/Birthday_Paradox.svg.png}
+    %\vspace{1em}
+    \caption{Obliczone prawdopodobieństwo, ze co najmniej dwie osoby mają wspólną datę urodzenia.}
+    \label{fig:birthdaj}
+    \source{\url{https://www.wikiwand.com/en/Birthday_problem} \cite{wiki:Birthday_problem}}
+\end{figure}
+
+Podpisy cyfrowe mogą być podatne na atak wykorzystujący paradoks dnia urodzin (ang. birthday attack). Zazwyczaj podpisywanie wiadomości $m$ zaczyna się od obliczenia $f(m)$, gdzie $f$ to kryptograficzna funkcja skrótu a następnie używa się tajnego klucza do podpisu $f(m)$ (wartości skrótu z wiadomości). Załóżmy że adwersarz, chce wrobić Boba w podpis nieuczciwego dokumentu. Adwersarz przygotowuje uczciwy dokument $m$ i nieuczciwy $m'$. Uczciwy dokument $m$ jest tak modyfikowany (np. dodawane białe znaki) aby jego skrót był równy skrótowy z dokumentu $m'$, czyli $f(m) = f(m')$~\cite{wiki:Birthday_problem}.
+
+W takiej sytuacji, gdy Bob podpisze dokument $m$ będzie to równoważne z podpisaniem $m'$.
+
+Aby obronić się przed tym atakiem, długość skrótu powinna być stosunkowo duża, aby znalezienie kolizji było wystarczająco trudne. Innym sposobem na przeciwdziałanie temu atakowi, jest mała zmiana dokumentu przez Boba przed podpisaniem (ale wtedy adwersarz może tak samo szukać kolizji zmieniając fałszywy dokument)~\cite{wiki:Birthday_problem}.
+
+Na wykładach atak ten był przedstawiony w trochę inny sposób. Podpis cyfrowy dla wiadomości $m$ to $s = D_d(h(m))$, gdzie $D_d$ to klucz prywatny Boba, $h$ to funkcja skrótu. Mając skrót o długości $n$ bitów należy:
+
+\begin{itemize}
+    \item wygenerować $2^{n/2}$ fałszywych wiadomości $m_i$
+    \item wygenerować $2^{n/2}$ fałszywych podpisów $s_i$
+    \item znaleźć taką parę, że $E_e(s_j) = h(m_k)$, gdzie $E$ to klucz publiczny Boba \cite{Chocian2020}.
+\end{itemize}
 
 % \subsection{Podział metod rozwiązywania równań liniowych metodami numerycznymi}
 % TODO
