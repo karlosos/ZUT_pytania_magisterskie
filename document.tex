@@ -26,9 +26,26 @@ Zachęcam do składania poprawek poprzez stworzenie pull-requestów na repozytor
 
 \section{Przedmioty wspólne}
 
-% \subsection{Zasady cyfryzacji sygnałów. Prawo Kotielnikowa-Shannona. Granica Nyquisa. Aliasing.}
+\subsection{Zasady cyfryzacji sygnałów. Prawo Kotielnikowa-Shannona. Granica Nyquisa. Aliasing.}
 % TODO
 % Aleksandr Cariow. Cyfrowe przetwarzanie sygnałów.
+
+Pierwszy etap procesu przekształcania postaci analogowej w cryfrową to \textbf{próbkowanie}. Jest to metoda zapisu chwilowych wartości sygnału ciągłego. Największe znaczenie w procesie próbkowania ma częstotliwość pobierania próbek.
+
+\paragraph{Twierdzenie Nyquista} definiuje minimalną częstotliwość niezbędną w celu osiągnięcia precyzyjnej reprezentacji sygnału analogowego. Rozszerzeniem tego twierdzenia jest \textbf{prawo Kotielnikowa-Shannowa}, które mówi, że w celu osiągnięcia dokładnej reprezentacji sygnału analogowego minimalna częstotliwość próbkowania powinna być co najmniej dwa razy wyższa od składowej o najwyższej częstotliwości sygnału oryginalnego. Ta minimalna częstotliwość jest często nazywana częstotliwością Nyquista lub \textbf{granicą Nyquista}.
+
+W przypadku, gdy częstotliwość próbkowania jest mniejsza od granicy Nuqyista, to pasma częstotliwościowe nakładają się na siebie. Wywołuje to interferencję sygnału wyjściowego i efekt ten nazywany jest \textbf{aliasingiem} (utożsamianiem). Aby radzić sobie aliasingiem możemy wykorzystać wyższą częstotliwość próbkowania lub filtr dolnoprzepustowy (antyaliasingowy)~\cite{Cariow_3}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/aliasign.png}
+    %\vspace{1em}
+    \caption{Poszczególne pasma zachodzą na siebie i w sygnale wyjściowym wytwarzany jest aliasing.}
+    \label{fig:aliasign}
+    \source{Opracowanie własne}
+\end{figure}
+
+
 
 % \subsection{Bezpieczny schemat podpisu cyfrowego. Modele bezpieczeństwa.}
 % TODO
