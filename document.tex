@@ -22,6 +22,8 @@ W tym akapicie przedstawiony jest schemat oznaczenia pytań co do których odpow
 
 Podczas opracowywania pytań starałem się tłumaczyć możliwie jak najogólniej powiązane zagadnienia. W wielu przypadkach też zamieściłem odnośniki do źródeł z których korzystałem podczas tworzenia z tego dokumentu.
 
+Zachęcam do składania poprawek poprzez stworzenie pull-requestów na repozytorium, które dostępne jest pod adresem \url{https://github.com/karlosos/ZUT_pytania_magisterskie}.
+
 \section{Przedmioty wspólne}
 
 % \subsection{Zasady cyfryzacji sygnałów. Prawo Kotielnikowa-Shannona. Granica Nyquisa. Aliasing.}
@@ -58,7 +60,41 @@ Testy generatorów ciągów losowych:
     \item Test ,,pokerowy''
     \item Test ,,długich podciągów identycznych ciągów''
     \item Test ,,podciągów identycznych ciągów''
+    \item Dieharder
+    \item NIST Statistical Test Suite \cite{Chocian2020_2}
 \end{itemize}
+
+\paragraph{Test pojedynczych bitów - \emph{monobit test}}
+
+Wygenerować ciąg binarny o długości 20000 bitów. \textbf{Należy określić liczbę $X$ wszystkich bitów o wartości $1$ występujących w badanym ciągu.} Wynik testu jest pomyślny gdy, $9725 < X < 10275$.
+
+\paragraph{Test ,,pokerowy''}
+
+Wygenerować ciąg binarny o długości 20000 bitów. \textbf{Podzielić badany ciąg na 4-bitowe paczki obejmujące 4 kolejne bity (takich paczek jest 5000)}. Zliczyć częstości $f(i)$ pojawiania się każdej z możliwych 16 sekwencji bitowych. Obliczyć wielkość $X = (16/5000) \sum{f(i)^2} - 5000$. Wynik testu jest pomyślny, gdy $2.16 < X < 46.17$.
+
+\paragraph{Test ,,długich podciągów identycznych ciągów'' (Long runs test)}
+
+Wygenerować ciąg binarny o długości 20000 bitów.  Jeżeli w badanym ciągu istnieje co najmniej jeden podciąg o długości $>26$ bitów zaweirający same 0 lub same 1, to wynik testu jest negatywny.
+
+\paragraph{Test ,,podciągów identycznych ciągów'' (Runs test)}
+
+Zliczyć wszystkie podciągi składające się tylko z bitów o wartości 0, albo tylko z bitów o wartości 1. Podzielić te podciągi na 6 grup: pierwszą - zawierającą podciągi u długości 1 bita, drugą - zawierającą podciągi o długości 2 bitów, itd.
+
+Jeżeli liczebność którejkolwiek z sześciu grup podciągów nie mieści się w zakresie podanym w tablicy, to wynik testu jest negatywny~\cite{Chocian2020_2}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}rc@{}}
+\toprule
+Indeks paczki & Zakres    \\ \midrule
+1             & 2315-2685 \\
+2             & 1114-1386 \\
+3             & 527-723   \\
+4             & 240-384   \\
+5             & 103-209   \\
+6+            & 103-209   \\ \bottomrule
+\end{tabular}
+\end{table}
 
 % TODO opisać wszystkie testy
 
