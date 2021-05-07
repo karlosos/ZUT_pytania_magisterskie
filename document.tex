@@ -27,7 +27,6 @@ Zachęcam do składania poprawek poprzez stworzenie pull-requestów na repozytor
 \section{Przedmioty wspólne}
 
 \subsection{Zasady cyfryzacji sygnałów. Prawo Kotielnikowa-Shannona. Granica Nyquisa. Aliasing.}
-% TODO
 % Aleksandr Cariow. Cyfrowe przetwarzanie sygnałów.
 
 Pierwszy etap procesu przekształcania postaci analogowej w cryfrową to \textbf{próbkowanie}. Jest to metoda zapisu chwilowych wartości sygnału ciągłego. Największe znaczenie w procesie próbkowania ma częstotliwość pobierania próbek.
@@ -42,18 +41,63 @@ W przypadku, gdy częstotliwość próbkowania jest mniejsza od granicy Nuqyista
     %\vspace{1em}
     \caption{Poszczególne pasma zachodzą na siebie i w sygnale wyjściowym wytwarzany jest aliasing.}
     \label{fig:aliasign}
-    \source{Opracowanie własne}
+    \source{Cyfrowe Przetwarzanie Sygnałów, Wykład 3 \cite{Cariow_3}}
 \end{figure}
 
 
-
-% \subsection{Bezpieczny schemat podpisu cyfrowego. Modele bezpieczeństwa.}
-% TODO
+\subsection{Bezpieczny schemat podpisu cyfrowego. Modele bezpieczeństwa.}
 % Tomasz Hyla. Kryptologia.
 
-% \subsection{Idea interpolacji funkcji z wykorzystaniem funkcji sklejanych.}
+W wykładach z kryptologii brak bezpośredniej odpowiedzi na to pytanie, albo przynajmniej jej nie znalazłem. Poniższy tekst więc jest raczej wzięty na logikę i chłopski rozum niż oparty na informacjach z wykładów.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/podpis_cyfrowy.png}
+    %\vspace{1em}
+    \caption{Schemat podpisu cyfrowego.}
+    \label{fig:digital_signature}
+    \source{Kryptologia część 5 \cite{Chocian2020}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/1200px-Private_key_signing.svg.png}
+    %\vspace{1em}
+    \caption{Schemat podpisu cyfrowego.}
+    \label{fig:digital_signature}
+    \source{Wikimedia \url{https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Private_key_signing.svg/1200px-Private_key_signing.svg.png}}
+\end{figure}
+
+Podpisy cyfrowe realizowane są w oparciu o kryptografię symetryczną. Klucz prywatny jest używany do składania podpisu, zaś klucz publiczny służy do weryfikacji. Podpis cyfrowy zapewnia autentyczność. Bezpieczeństwo podpisu zależy całkowicie od tego czy klucz prywatny jest tajny i klucz publiczny faktycznie należy do nadawcy.
+
+Właściwości bezpieczeństwa informacji (nie modele bezpieczeństwa) to poufność, integralność, osiągalność, autentyczność, rozliczalność, niezaprzeczalność (CIA - confidentiality, integrity, availability) \cite{Pejas}.
+
+\question
+
+\subsection{Idea interpolacji funkcji z wykorzystaniem funkcji sklejanych.}
 % TODO
 % Piotr Piela. Matematyka obliczeniowa.
+
+\paragraph{Funkcje sklejane} są realizacją idei gładkiej interpolacji lokalnej wielomianem niskiego stopnia z gładkim połączeniem (sklejaniem) poszczególnych wielomianów lokalnych. Mówiąc prościej jest to po prostu sklejenie kilku wielomianów w przedziałach, tak aby przybliżenie było ciągłe \cite{Piela}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/spline.png}
+    %\vspace{1em}
+    \caption{Przykładu funkcji sklejanych. Funkcja sklejana stopnia 0 jest przedziałami stała, a stopnia 1 to krzywa łamana.}
+    \label{fig:spline}
+    \source{Matematyka obliczeniowa: W07 - Interpolacja \cite{Piela}}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/spline2.png}
+    %\vspace{1em}
+    \caption{Przykłady funkcji sklejanych.}
+    \label{fig:spline2}
+    \source{\url{https://media.cheggcdn.com/study/d5c/d5ce9820-0f41-4ee8-8f71-39cf222db1e5/722820-18-6IP10.png}}
+\end{figure}
 
 % \subsection{Styl poznawczy (kognitywny) człowieka}
 % TODO
