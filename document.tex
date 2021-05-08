@@ -189,11 +189,34 @@ Indeks paczki & Zakres    \\ \midrule
 \end{tabular}
 \end{table}
 
-% TODO opisać wszystkie testy
-
-% \subsection{Filtracja cyfrowa: filtry SOI i NOI}
-% TODO
+\subsection{Filtracja cyfrowa: filtry SOI i NOI}
 % Aleksandr Cariow. Cyfrowe przetwarzanie sygnałów.
+
+Wyróżniamy dwie postaci filtrów cyfrowych: (1) filtry o skończonej odpowiedzi impulsowej (SOI) (ang. finite impulse response (FIR)) i (2) filtry o nieskończonej odpowiedzi impulsowej (NOI) (ang. infinite impulse response IIR)~\cite{Cariow_7}.
+
+Filtry SOI o skończonej odpowiedzi impulsowej to najprostszy typ filtru. Jest to splot sekwencji wejściowej ze współczynnikami filtru. Czyli jest to suma iloczynów elementów dwóch ciągów, gdzie jeden ciąg jest odwrócony~\cite{Cariow_7}.
+
+\begin{equation}
+    y_{n}=\sum_{-N}^{+N} a_{k} x_{n-k}
+\end{equation}
+
+W filtrach NOI do wyznaczenia wartości wyjściowych wykorzystuje się nie tylko dane wejściowe ale również wartości wyjściowe. Głównym założeniem i różnicą względem filtrów SOI jest to, że filtry NOI zawsze wymagają sprzężenia zwrotnego~\cite{Cariow_7}.
+
+W odróżnieniu od filtrów SOI w filtrach tego typu każdy element sekwencji wyjściowej zależy od wartości bieżących oraz poprzednich elementów sekwencji wejściowej zarówno jak i od wartości poprzednich elementów sekwencji wyjściowej~\cite{Cariow_7}.
+
+Jeżeli sekwencja wejściowa filtru tego typu stałaby się nagle ciągiem wartości zerowych, to sekwencja wyjściowa mogłaby (i to w pewnych warunkach już na zawsze) pozostać się ciągiem elementów niezerowych~\cite{Cariow_7}.
+
+\begin{equation}
+    y_{n}=\sum_{0}^{N} a_{k} x_{n-k}+\sum_{1}^{M} b_{k} y_{n-k}
+\end{equation}
+
+Aczkolwiek pojawienie się niestabilności jest możliwe w filtrach NOI, to mają one taką zaletę, że dla takiej samej charakterystyki nachylenia wymagają mniejszej liczby odprowadzeń, niż filtry SOI~\cite{Cariow_7}.
+
+Oznacza to, że jeśli nasze zasoby obliczeniowe są ograniczone, możemy zastosować filtr NOI zwracając jednak baczną uwagę na staranne zaprojektowanie jego stabilności~\cite{Cariow_7}.
+
+Filtry NOI są powszechnie stosowane przy realizacji sprzężeń międzyukładowych dla prądu zmiennego oraz w celu wygładzania (uśredniania) przebiegów~\cite{Cariow_7}.
+
+Najczęściej jednak wykorzystywane są łączone struktury filtrów SOI i NOI~\cite{Cariow_7}.
 
 % \subsection{Reprezentacja sygnałów za pomocą szeregów funkcyjnych. Dyskretne transformacje ortogonalne oraz szybkie algorytmy ich wyznaczania.}
 % TODO
