@@ -131,8 +131,17 @@ Zastosowania to: Sieci społecznościowe, wyznaczanie tras, usługi oparte na lo
 Przykładem grafowej bazy danych jest \emph{Neo4j} z językiem zapytań \emph{Cypher}.
 
 \subsection{Założenia i obszary zastosowania platformy Apache Spark}
-% TODO
 % Przemysław Korytkowski. Duże zbiory danych.
+
+Apache Spark to platforma programistyczna do obliczeń rozproszonych. Dostarcza wydajny i skalowalny silnik przetwarzania danych o dużych rozmiarach. Jest rozwinięciem idei z Hadoop MapReduce zapewniającym większą wydajność i większe możliwości analityczne~\cite{Malachowski_spark}.
+
+Spark jest skalowalny, bo dzieli obliczenia na zadania i rozprasza je po węzłach klastra. Potrafi sam zarządzać klastrem danych. Szybka wydajność wynika z wykorzystania pamięci RAM w przeciwieństwie do bazującego na zapisach na dysku Hadoop MapReduce~\cite{Malachowski_spark}.
+
+Spark jest napisany w języku Scala. Inne obsługiwane języki to Python i Java.
+
+Główną ideą spark jest RFF (resilient Distributed Dataset) - model rozproszonych danych. Metody obliczeniowe przyjmuja na wejściu obiekty RDD i wynikiem ich przetwarzania jest zredukowany obiekt RDD~\cite{Malachowski_spark}.
+
+Apache Spark wykorzystywany jest w systemach rekomendacyjnych (Spotify, Netlifx), w systemach e-commerce (Allegro), w przetwarzaniu danych strumieniowych, uczeniu maszynowym, fog computing (IoT).
 
 \subsection{Sposoby sprawdzenia właściwości losowych danego ciągu}
 % Tomasz Hyla. Kryptologia.
