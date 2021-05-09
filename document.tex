@@ -68,7 +68,7 @@ W wykładach z kryptologii brak bezpośredniej odpowiedzi na to pytanie, albo pr
     \source{Wikimedia \url{https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Private_key_signing.svg/1200px-Private_key_signing.svg.png}}
 \end{figure}
 
-Podpisy cyfrowe realizowane są w oparciu o kryptografię symetryczną. Klucz prywatny jest używany do składania podpisu, zaś klucz publiczny służy do weryfikacji. Podpis cyfrowy zapewnia autentyczność. Bezpieczeństwo podpisu zależy całkowicie od tego czy klucz prywatny jest tajny i klucz publiczny faktycznie należy do nadawcy.
+Podpisy cyfrowe realizowane są w oparciu o kryptografię asymetryczną. Klucz prywatny jest używany do składania podpisu, zaś klucz publiczny służy do weryfikacji. Podpis cyfrowy zapewnia autentyczność. Bezpieczeństwo podpisu zależy całkowicie od tego czy klucz prywatny jest tajny i klucz publiczny faktycznie należy do nadawcy.
 
 Właściwości bezpieczeństwa informacji (nie modele bezpieczeństwa) to poufność, integralność, osiągalność, autentyczność, rozliczalność, niezaprzeczalność (CIA - confidentiality, integrity, availability) \cite{Pejas}.
 
@@ -251,9 +251,63 @@ Na wykładach atak ten był przedstawiony w trochę inny sposób. Podpis cyfrowy
     \item znaleźć taką parę, że $E_e(s_j) = h(m_k)$, gdzie $E$ to klucz publiczny Boba \cite{Chocian2020}.
 \end{itemize}
 
-% \subsection{Podział metod rozwiązywania równań liniowych metodami numerycznymi}
-% TODO
+\subsection{Podział metod rozwiązywania równań liniowych metodami numerycznymi}
 % Piotr Piela. Matematyka obliczeniowa.
+
+Układem równań liniowych nazywamy układ:
+$$
+\left\{\begin{array}{l}
+a_{11} x_{1}+a_{12} x_{2}+\ldots+a_{1 n} x_{n}=b_{1} \\
+a_{21} x_{1}+a_{22} x_{2}+\ldots+a_{2 n} x_{n}=b_{2} \\
+\cdots \\
+a_{m 1} x_{1}+a_{m 2} x_{2}+\ldots+a_{m n} x_{n}=b_{m}
+\end{array}\right.
+$$
+Ten sam układ zapisany w postaci macierzowej:
+$$
+\left(\begin{array}{cccc}
+a_{11} & a_{12} & \ldots & a_{1 n} \\
+a_{21} & a_{22} & \ldots & a_{2 n} \\
+\vdots & \vdots & \vdots & \vdots \\
+a_{m 1} & a_{m 2} & \ldots & a_{m n}
+\end{array}\right) \cdot\left(\begin{array}{c}
+x_{1} \\
+x_{2} \\
+\vdots \\
+x_{n}
+\end{array}\right)=\left(\begin{array}{c}
+b_{1} \\
+b_{2} \\
+\vdots \\
+b_{m}
+\end{array}\right)
+$$
+
+\textbf{Metody rozwiązywania} układów równań liniowych:
+
+\begin{itemize}
+    \item Wzory Cramera
+    \item Odwracane Macierzy
+    \item Metody eliminacji
+    \begin{itemize}
+        \item Metoda eliminacji Gaussa
+        \item Metoda eliminacji Gaussa-Crouta
+        \item Metoda eliminacji Jordana
+    \end{itemize}
+    \item Metody wykorzystujące rozkłady macierzy
+    \begin{itemize}
+        \item Rozkład LU
+        \item Rozkład QR
+        \item Rozkład SvD
+    \end{itemize}
+    \item Metody iteracyjne
+    \begin{itemize}
+        \item Metoda Richardsona
+        \item Metoda Jacobiego
+        \item Metoda Gaussa-Seidela
+        \item Metoda nadrelaksacji (SOR)
+    \end{itemize}
+\end{itemize}
 
 % \subsection{Algorytm numeryczny niestabilny a algorytm źle uwarunkowany}
 % TODO
