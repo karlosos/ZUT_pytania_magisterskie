@@ -283,7 +283,7 @@ b_{m}
 \end{array}\right)
 $$
 
-\textbf{Metody rozwiązywania} układów równań liniowych:
+\textbf{Metody rozwiązywania} układów równań liniowych~\cite{Piela_URL}:
 
 \begin{itemize}
     \item Wzory Cramera
@@ -309,9 +309,12 @@ $$
     \end{itemize}
 \end{itemize}
 
-% \subsection{Algorytm numeryczny niestabilny a algorytm źle uwarunkowany}
-% TODO
+\subsection{Algorytm numeryczny niestabilny a algorytm źle uwarunkowany}
 % Piotr Piela. Matematyka obliczeniowa.
+
+Algorytm numeryczny nazywamy \textbf{niestabilnym} jeśli małe błędy popełnione na jakimś etapie obliczeń rosną w następnych etapach i poważnie zniekształcają ostateczne wyniki. Przy badaniu stabilności wykorzystuje się błędy względne~\cite{Piela_Wstep}.
+
+Algorytm numeryczny jest \textbf{źle uwarunkowany} jeśli małe zmiany danych początkowych wywołują duże zmiany wyników. Dla pewnych typów zadań można określić wskaźnik uwarunkowania, który charakteryzuje wpływ zaburzeń danych na otrzymane wyniki. Jeśli jest on duży to zadanie jest źle uwarunkowane. Uwarunkowanie jest cechą samego zadania i nie jest związane z metodą jego rozwiązania~\cite{Piela_Wstep}.
 
 % \subsection{Programowanie kodu wielowątkowego wraz z wzajemnym wykluczaniem w C++ 11 Threads}
 % TODO
