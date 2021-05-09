@@ -324,9 +324,29 @@ Algorytm numeryczny jest \textbf{źle uwarunkowany} jeśli małe zmiany danych p
 % TODO
 % Przemysław Korytkowski. Duże zbiory danych.
 
-% \subsection{Rodzaje błędów składające się na całkowity błąd obliczeń numerycznych}
-% TODO
+\subsection{Rodzaje błędów składające się na całkowity błąd obliczeń numerycznych}
 % Piotr Piela. Matematyka obliczeniowa.
+Na błąd całkowity obliczeń numerycznych składają się następujące rodzaje błędów:
+\begin{itemize}
+    \item błąd wejścia,
+    \begin{itemize}
+        \item błąd wejścia dla podstawowych działań arytmetycznych, 
+    \end{itemize}
+    \item błąd metody,
+    \begin{itemize}
+        \item błąd urwania procedury iteracyjnej
+        \item błąd dyskretyzacji
+    \end{itemize}
+    \item błąd zaokrąglenia.
+\end{itemize}
+
+Błąd wejścia zależy od niedokładności pomiarów, przeoczeń, błędnych odczytów, brakiem możliwości zapisu dowolnej liczby rzeczywistej w postaci liczby maszynowej~\cite{Piela_Wstep}.
+
+Błąd metody zależy od konieczności przybliżania wartości ciągłych, nie zależy od błędów wejścia i zaokrąglenia, zależy od konieczności reprezentowania procesów nieskończonych~\cite{Piela_Wstep}.
+
+Błąd dyskretyzacji powstaje w wyniku aproksymacji struktur ciągłych za pomocą układów dyskretnych (np. całkowanie numeryczne)~\cite{Piela_Wstep}.
+
+Błąd zaokrąglenia wynika z potrzeby reprezentowania liczb w postaci maszynowej (na skończonej liczby bitów). Z tego powodu powstaje zjawisko obcięcia lub zaokrąglenia.
 
 % \subsection{Standard C++ 17 Parallel}
 % TODO
