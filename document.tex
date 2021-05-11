@@ -399,6 +399,31 @@ Błąd zaokrąglenia wynika z potrzeby reprezentowania liczb w postaci maszynowe
 % Marek Palkowski. Obliczenia dużej mocy.
 % https://en.cppreference.com/w/cpp/17
 
+Wraz z standardem C++17 w ramach języka został zdefiniowany standard Parallel. Polegało to na dodaniu do modułu \lstinline{algorithms} metod działających współbieżnie oraz innych funkcjonalności współbieżności (\lstinline{execution policies})~\cite{C++17}.
+
+Przykładowe algorytmy to:
+
+\begin{itemize}
+    \item sort
+    \item reduce
+    \item for\_each
+    \item count
+    \item find
+    \item transform\_reduce~\cite{MicrosoftCPP17}
+\end{itemize}
+
+
+\code{Uruchomienie algorytmu \lstinline{find} w trybie sekwencyjnym i równoległym.}
+{\url{https://dev.to/fenbf/examples-of-parallel-algorithms-from-c17-3jej}}{\label{kod:przyklad}}
+\begin{lstlisting}[language=C++]
+auto res = std::find(std::execution::seq, std::begin(v), std::end(v), 0.6);
+return res == std::end(v) ? 0.0 : 1.0;
+
+auto res = std::find(std::execution::par, std::begin(v), std::end(v), 0.6);
+return res == std::end(v) ? 0.0 : 1.0;
+\end{lstlisting}
+
+
 \subsection{Dokładność rozwiązywania równań różniczkowych metodami numerycznymi}
 % Piotr Piela. Matematyka obliczeniowa.
 
