@@ -367,9 +367,27 @@ int main()
 }
 \end{lstlisting}
 
-% \subsection{Cechy środowiska Hadoop}
-% TODO
+\subsection{Cechy środowiska Hadoop}
 % Przemysław Korytkowski. Duże zbiory danych.
+
+Apache Hadoop to otwarta platforma programistyczna napisana w języku Java przeznaczona do rozproszonego składowania i przetwarzania wielkich zbiorów danych przy pomocy klastrów komputerowych. Wszystkie moduły Hadoop zostały zaprojektowane z założeniem, że awarie sprzętowe są rzeczą naturalną i powinny być automatycznie obsługiwane~\cite{Korytkowski_hadoop}.
+
+Cechy szczególne środowiska Hadoop:
+
+\begin{itemize}
+    \item Możliwość przechowywania i szybkiego \textbf{przetwarzania ogromnej ilości danych} różnego typu
+    \item \textbf{Moc obliczeniowa} - dzięki rozproszonemu modelowi obliczeniowemu przetwarzanie big data jest szybkie. Im więcej węzłów jest używanych, tym większa moc przetwarzania.
+    \item T\textbf{olerancja na błędy} - odporne na awarię sprzętu, automatyczne przekierowanie do innych węzłów, tworzenie wielu kopii danych automatycznie.
+    \item \textbf{Elastyczność} - nie trzeba wstępnie przetwarzać danych przed zapisem. Można przechowywać dane nieustrukturyzowane i później zdecydować jak je wykorzystać.
+    \item \textbf{Niski koszt} - jest bezpłatne, bo open source
+    \item \textbf{Skalowalność} - łatwe rozbudowywanie systemu poprzez dodawanie węzłów
+\end{itemize}
+
+W porównaniu do relacyjnych baz danych w hadoopie dane mogą być ustrukturyzowane lub nie. Przechowywane są duże rozmiary danych. Jęzkiem zamiast SQL jest HQL. Wykorzystywany jest to przetwarzania dużej liczby danych (audio, video, logi). Charakteryzuje się wysoką wydajnością, niską integralnością (brak ACID)~\cite{Korytkowski_hadoop}.
+
+W ekosystemie wykorzystywany jest rozproszony system plików \textbf{HDFS}. Do przetwarzania dużych ilości danych wykorzystywany jest paradygmat \textbf{MapReduce}. Za zarządzanie zasobami klastra odpowiada \textbf{YARN}~\cite{Korytkowski_hadoop}.
+
+Nacisk na szybki zapis i elastyczność (schema-on-read)~\cite{Korytkowski_hadoop}.
 
 \subsection{Rodzaje błędów składające się na całkowity błąd obliczeń numerycznych}
 % Piotr Piela. Matematyka obliczeniowa.
