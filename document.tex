@@ -316,9 +316,56 @@ Algorytm numeryczny nazywamy \textbf{niestabilnym} jeśli małe błędy popełni
 
 Algorytm numeryczny jest \textbf{źle uwarunkowany} jeśli małe zmiany danych początkowych wywołują duże zmiany wyników. Dla pewnych typów zadań można określić wskaźnik uwarunkowania, który charakteryzuje wpływ zaburzeń danych na otrzymane wyniki. Jeśli jest on duży to zadanie jest źle uwarunkowane. Uwarunkowanie jest cechą samego zadania i nie jest związane z metodą jego rozwiązania~\cite{Piela_Wstep}.
 
-% \subsection{Programowanie kodu wielowątkowego wraz z wzajemnym wykluczaniem w C++ 11 Threads}
-% TODO
+\subsection{Programowanie kodu wielowątkowego wraz z wzajemnym wykluczaniem w C++ 11 Threads}
 % Marek Pałkowski. Obliczenia dużej mocy.
+
+Wraz z standardem C++11 wprowadzono do biblioteki standardowej moduł do zarządzania wątkami, instrukcjami warunkowymi czy mutexami. Dokumentacja dostępna jest pod adresem \url{https://en.cppreference.com/w/cpp/thread}.
+
+Dzięki temu nie trzeba korzystać z wątków z biblioteki \lstinline{pthreads}, która była przeznaczona do języka C.
+
+\code{Przykład tworzenia wątków z wykorzystaniem C++11 threads.}
+{\url{https://www.bogotobogo.com/cplusplus/C11/1_C11_creating_thread.php}}{\label{kod:przyklad}}
+\begin{lstlisting}[language=C++]
+#include <iostream>
+#include <thread>
+
+void thread_function()
+{
+    std::cout << "thread function\n";
+}
+
+int main()
+{
+    std::thread t(&thread_function);   // t starts running
+    std::cout << "main thread\n";
+    t.join();   // main thread waits for the thread t to finish
+    return 0;
+}
+\end{lstlisting}
+
+Inną możliwością jest tworzenie wątków przy wykorzystaniu wyrażenia lambda.
+
+\code{Przykład tworzenia wątków z wykorzystaniem wyrażanie lambda w C++11 threads.}
+{\url{https://www.bogotobogo.com/cplusplus/C11/1_C11_creating_thread.php}}{\label{kod:przyklad}}
+\begin{lstlisting}[language=C++]
+#include <iostream>
+#include <thread>
+int main()  
+{
+    int x = 9;
+    std::thread threadObj([]{
+            for(int i = 0; i < 10000; i++)
+                std::cout<<"Display Thread Executing"<<std::endl;
+            });
+            
+    for(int i = 0; i < 10000; i++)
+        std::cout<<"Display From Main Thread"<<std::endl;
+        
+    threadObj.join();
+    std::cout<<"Exiting from Main Thread"<<std::endl;
+    return 0;
+}
+\end{lstlisting}
 
 % \subsection{Cechy środowiska Hadoop}
 % TODO
@@ -348,9 +395,9 @@ Błąd dyskretyzacji powstaje w wyniku aproksymacji struktur ciągłych za pomoc
 
 Błąd zaokrąglenia wynika z potrzeby reprezentowania liczb w postaci maszynowej (na skończonej liczby bitów). Z tego powodu powstaje zjawisko obcięcia lub zaokrąglenia.
 
-% \subsection{Standard C++ 17 Parallel}
-% TODO
+\subsection{Standard C++ 17 Parallel}
 % Marek Palkowski. Obliczenia dużej mocy.
+% https://en.cppreference.com/w/cpp/17
 
 \subsection{Dokładność rozwiązywania równań różniczkowych metodami numerycznymi}
 % Piotr Piela. Matematyka obliczeniowa.
