@@ -377,13 +377,13 @@ Cechy szczególne środowiska Hadoop:
 \begin{itemize}
     \item Możliwość przechowywania i szybkiego \textbf{przetwarzania ogromnej ilości danych} różnego typu
     \item \textbf{Moc obliczeniowa} - dzięki rozproszonemu modelowi obliczeniowemu przetwarzanie big data jest szybkie. Im więcej węzłów jest używanych, tym większa moc przetwarzania.
-    \item T\textbf{olerancja na błędy} - odporne na awarię sprzętu, automatyczne przekierowanie do innych węzłów, tworzenie wielu kopii danych automatycznie.
+    \item \textbf{Tolerancja na błędy} - odporne na awarię sprzętu, automatyczne przekierowanie do innych węzłów, tworzenie wielu kopii danych automatycznie.
     \item \textbf{Elastyczność} - nie trzeba wstępnie przetwarzać danych przed zapisem. Można przechowywać dane nieustrukturyzowane i później zdecydować jak je wykorzystać.
     \item \textbf{Niski koszt} - jest bezpłatne, bo open source
     \item \textbf{Skalowalność} - łatwe rozbudowywanie systemu poprzez dodawanie węzłów
 \end{itemize}
 
-W porównaniu do relacyjnych baz danych w hadoopie dane mogą być ustrukturyzowane lub nie. Przechowywane są duże rozmiary danych. Jęzkiem zamiast SQL jest HQL. Wykorzystywany jest to przetwarzania dużej liczby danych (audio, video, logi). Charakteryzuje się wysoką wydajnością, niską integralnością (brak ACID)~\cite{Korytkowski_hadoop}.
+W porównaniu do relacyjnych baz danych w hadoopie dane nie muszą być ustrukturyzowane. Przechowywane są duże rozmiary danych. Jęzkiem zamiast SQL jest HQL. Wykorzystywany jest to przetwarzania dużej liczby danych (audio, video, logi). Charakteryzuje się wysoką wydajnością, niską integralnością (brak ACID)~\cite{Korytkowski_hadoop}.
 
 W ekosystemie wykorzystywany jest rozproszony system plików \textbf{HDFS}. Do przetwarzania dużych ilości danych wykorzystywany jest paradygmat \textbf{MapReduce}. Za zarządzanie zasobami klastra odpowiada \textbf{YARN}~\cite{Korytkowski_hadoop}.
 
@@ -655,9 +655,20 @@ Jest to najtrudniejszy z problemów. W tym celu używa się podejścia iteracyjn
 % TODO
 % Edward Półroliczak. Ekstrakcja cech.
 
-% \subsection{Przebieg uczenia ze wzmocnieniem i pozyskiwana w tym procesie wiedza}
-% TODO
+\subsection{Przebieg uczenia ze wzmocnieniem i pozyskiwana w tym procesie wiedza}
 % Marcin Pluciński. Uczenie maszynowe 2.
+
+Uczenie ze wzmocnieniem nie jest odmianą uczenia nadzorowanego. Ma na celu automatyczne pozyskanie wiedzy jaką jest umiejętność działania, tj. strategii~\cite{Pluto}.
+
+Pozyskiwanie umiejętności nie wymaga kompletnej i poprawnej teorii problemu. Uczenie przebiega na podstawie dynamicznych interakcji ze środowiskiem na ogół nie znanym wcześniej, często niedeterministycznym i niestacjonarnym. Jest to innymi słowy \textbf{uczenie na podstawie prób i błędów}~\cite{Pluto}.
+
+Agent (uczeń) działa w pewnym środowisku i zachowuje się w pożądany sposób. Wzmocnienie pełni rolę sprzężenie zwrotnego, oceniające ruchy agenta. Uczeń dowiadując się o wzmocnieniu stara się modyfikować swoje działania (strategie) tak aby w przyszłości było ono ocenianie lepiej~\cite{Pluto}.
+
+Pozyskiwania wiedza w etapie uczenia jest wyrażana za pomocą strategii. Jest to dowolna funkcja, która dla każdego stanu przypisuje daną akcję. Strategia optymalna, to taka strategia, dla której nie istnieje strategia od niej lepsza~\cite{Pluto}.
+
+Do uczenia wykorzystywane jest programowanie dynamiczne, czyli dzielenie problemu na podproblemy. Metody programowania dynamicznego umożliwiają wartościowanie strategii, czyli wyznaczanie funkcji wartości $V$ i funkcji wartości akcji $Q$~\cite{Pluto}.
+
+Algorytm Q-Learning jest często wykorzystywaną metodą gdy z góry nie znamy środowiska. Polega on na powtarzaniu gry wybierając akcje zgodnie z nauczoną strategią (dając możliwość na eksploracje) oraz obserwując wzmocnienia i kolejne stany. Aktualizowane są wartości $Q$ dla każdego stanu. Kluczowe jest dobrane parametru dyskontowania, które w istocie wprowadza karę za czas dotarcia do nagrody~\cite{Pluto}.
 
 \subsection{Cechy charakterystyczne splotowych sieci neuronowych}
 % Paweł Forczmański. Uczenie maszynowe 2.
