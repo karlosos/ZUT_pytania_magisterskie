@@ -651,9 +651,38 @@ Mamy sekwencję obserwacji, wiedząc ile ma być stanów i obserwacji jak nastro
 
 Jest to najtrudniejszy z problemów. W tym celu używa się podejścia iteracyjnego nazwanego \textbf{metodą Bauma-Welcha}~\cite{Pietrzykowski2020}.
 
-% \subsection{Cechy obiektów audio i metody ekstrakcji cech tych obiektów}
-% TODO
+\subsection{Cechy obiektów audio i metody ekstrakcji cech tych obiektów}
 % Edward Półroliczak. Ekstrakcja cech.
+
+Podstawową cechą dźwięku jest częstotliwość podstawowa (fundamentalna) oznaczana jako $F_0$. Częstotliwość podstawowa jest związana z wrażeniem wysokości dźwięku~\cite{Polrolniczak}.
+
+W dziedzinie czasu $F_0$ możemy wyznaczyć w oparciu długości okresu pomiędzy powtarzającymi się wystąpieniami wzorca (piku). W dziedzinie częstotliwości $F_0$ jest utożsamiane z lokalizacją pierwszego piku~\cite{Polrolniczak}.
+
+Wyznaczenie $F_0$ w przypadku dźwięków naturalnych jest problematyczne. W tym celu stosuje się metody czasowe (w dziedzinie czasu) lub widmowe (w dziedzinie częstotliwości)~\cite{Polrolniczak}.
+
+Do najpopularniejszych algorytmów czasowych zaliczamy:
+
+\begin{itemize}
+    \item Analiza sygnału autokorelacji
+    \item Analiza sygnału wygenerowanego przy pomocy metody AMDF (ang. Average Magnitude Difference Function)
+    \item Wykorzystanie powyższych metod dla liniowo i nieliniowo zmodyfikowanego sygnału wejściowego
+\end{itemize}
+
+Do najpopularniejszych algorytmów widmowych zaliczamy:
+
+\begin{itemize}
+    \item Analiza położenia składowych harmonicznych
+    \item Metoda cepstralna
+    \item Metoda ACOLS (ang. Autocorrelation of log spectrum)
+\end{itemize}
+
+Inną cechą dźwięku jest amplituda. Jest ona związana z natężeniem dźwięku czy ciśnieniem akustycznym~\cite{Polrolniczak}.
+
+Składowe harmoniczne związane są z wrażeniem barwy. Barwa zależy od ilości i częstotliwości składowych harmonicznych~\cite{Polrolniczak}.
+
+Inne parametry (cechy) dźwięku to: energia sygnału, wartość średnia sygnału, moc średnia sygnału w przedziałach (np. oktawowych)~\cite{Polrolniczak}.
+
+W przypadku głosu i mowy często wykorzystuje się \textbf{formanty}. \textbf{Jitter} charakteryzuje niestabilność częstotliwości fali dźwiękowej. Jest to odchylenie od idealnej okresowości fali dźwiękowej sygnału. \textbf{Shimmer} charakteryzuje niestabilność amplitudy~\cite{Polrolniczak}.
 
 \subsection{Przebieg uczenia ze wzmocnieniem i pozyskiwana w tym procesie wiedza}
 % Marcin Pluciński. Uczenie maszynowe 2.
