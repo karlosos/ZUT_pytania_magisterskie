@@ -607,9 +607,38 @@ Zaletą Julii jest szybkość działania (lepsza od Pythona). Uzyskano to przez 
 Za kilka lat na uczelnii studencii będą chcieli odchdodzić od Pythona na rzecz Julii, tak jak my chcieliśmy Pythona zamiast Matlaba.
 
 
-% \subsection{Porównanie dwóch dowolnych algorytmów wykrywania obiektów}
-% TODO
+\subsection{Porównanie dwóch dowolnych algorytmów wykrywania obiektów}
 % Paweł Forczmański. Widzenie komputerowe.
+
+Do problemu detekcji można wykorzystać deskryptor \textbf{HoGa (Histogram of Oriented Gradients)}. Dzielimy obraz na siatkę lokalnych gradientów dla wybranych kierunków (najczęściej 8 kierunków). Jako klasyfikator wykorzystuje się liniowy SVM~\cite{ForczmanskiCV}. Każdy piksel głosuje w ramach swojej komórki na pewien kierunek gradientu z siłą proporcjonalną do długości gradientu zaczepionego w tym pikselu.
+
+Uśredniony deskryptor HoGa toleruje zmiany pozy, ubrania, oświetlenia i tła w przypadku detekcji sylwetek ludzkich~\cite{ForczmanskiCV}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/hog-vis.png}
+    %\vspace{1em}
+    \caption{Deskryptor HoGa}
+    \label{fig:pdgd}
+    \source{\url{https://iq.opengenus.org/object-detection-with-histogram-of-oriented-gradients-hog/}}
+\end{figure}
+
+Innym algorytmem jest \textbf{AdaBoost Cascade Detector}. Jest to efektywnie obliczeniowo algorytm, który wcześnie odrzuca błędnych kandydatów. Jest to zrealizowane za pomocą łańcucha klasyfikatorów, które odrzucają pewną część przykładów, pozostawiając prawie wszystkie pozytywne~\cite{ForczmanskiCV}.
+
+Każdy klasyfikator AdaBoost to zespół klasyfikatorów, które wykorzystują proste cechy Haara. Cecha Haara to różnica średniej jasności pomiędzy dwoma obszarami~\cite{ForczmanskiCV}.
+
+W celu przyspieszenia obliczeń cech Haara wykorzystuje się obrazy całkowe~\cite{ForczmanskiCV}. 
+
+Jest to najszybszy z detektorów dla obrazów w skali szarości (nie licząc nowoczesnych podejść głębokiego uczenia)~\cite{ForczmanskiCV}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/Haar-features-used-for-Viola-Jones-face-detection-method.png}
+    %\vspace{1em}
+    \caption{Cechy Haara wykorzystywane w detektorze Viola-Jones (AdaBoost)}
+    \label{fig:pdgd}
+    \source{\url{https://www.researchgate.net/figure/Haar-features-used-for-Viola-Jones-face-detection-method_fig1_268348020}}
+\end{figure}
 
 % \subsection{Charakterystyka wybranych metod śledzenia obiektów}
 % TODO
