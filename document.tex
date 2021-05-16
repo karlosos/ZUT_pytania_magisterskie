@@ -218,9 +218,52 @@ Filtry NOI są powszechnie stosowane przy realizacji sprzężeń międzyukładow
 
 Najczęściej jednak wykorzystywane są łączone struktury filtrów SOI i NOI~\cite{Cariow_7}.
 
-% \subsection{Reprezentacja sygnałów za pomocą szeregów funkcyjnych. Dyskretne transformacje ortogonalne oraz szybkie algorytmy ich wyznaczania.}
-% TODO
+\subsection{Reprezentacja sygnałów za pomocą szeregów funkcyjnych. Dyskretne transformacje ortogonalne oraz szybkie algorytmy ich wyznaczania.}
 % Aleksandr Cariow. Cyfrowe przetwarzanie sygnałów.
+
+Sygnały $x(n)$ o złożonym kształcie reprezentuje się jako liniowe kombinacje prostszych przebiegów. Wykonuje się to za pomocą doboru zestawu z góry określonych funkcji $b_0(n), b_1(n), \ldots, b_k(n)$ oraz pewnych współczynników liczbowych $c_0, c_1, \ldots, c_k$. Wtedy sygnał $x(n)$ zdefiniowany za pomocą $N$ próbek z numerami $0, 1, \ldots, N-1$ można przedstawić w postaci:
+
+\begin{equation}
+    x(n)=\sum_{k=0}^{\infty} c_{k} b_{k}(n)
+\end{equation}
+
+\begin{equation}
+    c_{k}=\mathrm{E}_{k}^{-1} \sum_{n=0}^{N-1} x(n) b_{k}(n)
+\end{equation}
+
+Możliwe jest przechodzenie pomiędzy dziedziną czasową a widmem za pomocą dyskretnych transformacji w odpowiedniej bazie. Czyli sygnał cyfrowy można zdefiniować za pomocą jego próbek w dyskretnych chwilach czasu lub za pomocą zbioru współczynników widmowych~\cite{Cariow_6}.
+
+Ważne jest aby zbiór funkcji bazowych spełniał następujące warunki:
+
+\begin{enumerate}
+    \item Funkcje bazowe powinny być liniowo niezależne
+    $$a_{0} b_{0}(n)+a_{1} b_{1}(n)+\ldots+a_{N-1} b_{N-1}(n) \neq 0$$
+    \item System musi być uporządkowany. To oznacza że w zbiorze indeksów ma miejsce relacja porządku określająca jaka z funkcji jest poprzedzająca i jaka jest następna.
+    \item Funkcje bazowe na przedziale ortogonalności powinny posiadać skończoną energię.
+    \item System funkcji powinien tworzyć rodzinę zupełną - to znaczy, że niemożliwe jest dodanie ani jednej funkcji, która byłaby ortogonalna względem reszty wszystkich funkcji systemu.
+\end{enumerate}
+
+Najczęściej jako bazę wybiera się zbiór liniowo niezależnych funkcji ortogonalnych, dla których spełniony jest warunek:
+
+\begin{equation}
+    \sum_{n=0}^{N-1} b_{k}(n) \cdot b_{l}^{*}(n)=0, \quad k \neq l
+\end{equation}
+
+Wyróżnione transformacje ortogonalne:
+
+\begin{enumerate}
+    \item Baza funkcji Walsha - funkcje schodkowe
+    \item Szybkie transformaty w Bazie funkcji Vilenkina:
+    \begin{enumerate}
+        \item Vilenkina-Pontryagina (VPF)
+        \item Vilenkina-Kroneckera (VKF)
+        \item Vilenkina-Walsha
+    \end{enumerate}
+    \item Baza funkcji Haara
+    \item Baza funkcji piłopodobnych (Slant function)
+    \item Dyskretne Przekształcenie Kosinusowe (DCT) - algorytm Arai, Agui i Nakajama
+    \item Baza funkcji Hartley'a~\cite{Cariow_6}.
+\end{enumerate}
 
 \subsection{Atak na podpis cyfrowy wykorzystujący paradoks dnia urodzin}
 % Tomasz Hyla. Kryptologia.
@@ -640,9 +683,33 @@ Jest to najszybszy z detektorów dla obrazów w skali szarości (nie licząc now
     \source{\url{https://www.researchgate.net/figure/Haar-features-used-for-Viola-Jones-face-detection-method_fig1_268348020}}
 \end{figure}
 
-% \subsection{Charakterystyka wybranych metod śledzenia obiektów}
-% TODO
+\subsection{Charakterystyka wybranych metod śledzenia obiektów}
 % Paweł Forczmański. Widzenie komputerowe.
+
+Przykładowe trackery dostępne w \textit{OpenCV}:
+
+\begin{itemize}
+    \item CSRT
+    \item KCF
+    \item Boosting
+    \item MedianFlow
+\end{itemize}
+
+Inne popularne trackery:
+
+\begin{itemize}
+    \item MeanShift
+    \item CamShift
+    \item Particle Filter
+\end{itemize}
+
+Algorytm mean-shift może być wykorzystywany do śledzenia obiektów w sekwencjach wideo. Wymaga określenia cech obrazu na której będzie operować, np. kolor, krawędzie, wynik filtra cząsteczkowego czy inne cechy. Główną zaletą Mean-shift jest jego prostota.
+
+Największą wadą tej metody jest bazowania na wyglądzie śledzonego obiektu. Tworzy to problemy w przypadku okluzji, zmiany wyglądu poprzez rotację, zmianę skali itd.
+
+Mean-shift polega na wyznaczeniu lokalnych ekstremów rozkładów gęstości analizowanej cechy. Procedura ma charakter iteracyjny a sam proces rozpoczyna się od wskazania śledzonego obiektu (w sposób manualny lub automatyczny). Algorytmy z rodziny mean-shift operują na rozkładzie prawdopodobieństwa, np. gdy wybraną cechą jest barwa, to zadanie jest realizowane w oparciu o histogram. Okno poszukiwań przemieszcza się wraz z rosnącym gradientem aż do momentu zbieżności.
+
+Rozwiązaniem problemu skalowanie jest metoda CAMSHIFT, która adaptuje się do rozmiaru okna opisującego śledzony obiekt. Podstawowa różnica polega na dynamicznej adaptacji okna. 
 
 \subsection{Trzy pytania, na które odpowiadają Ukryte Modele Markowa oraz używane do tego celu algorytmy}
 % Marcin Pietrzykowski. Eksploracja danych.
@@ -831,9 +898,6 @@ Wariant z $\gamma$-marginesem polega na tym, że wagi są korygowane wtedy gdy p
 
 \textbf{Perceptron z głosowaniem} polega na tworzeniu wielu perceptronów (zestawów wag). Dla każdego zestawu wag przechowywany jest licznik, który opisuje ile próbek zostało dobrze sklasyfikowanych aż wagi należało poprawić. W procesie predykcji wybieramy głosem większościowym odpowiedzieć klasyfikatora. W \textbf{wersji average perceptron} różnica występuje tylko w odpowiedzi klasyfikatora. Gdzie wybierana jest średnia ze wszystkich klasyfikatorów.
 \question
-
-
-
 
 \subsection{Proces tworzenia zbioru uczącego, walidującego i testowego w głębokim uczeniu}
 % Paweł Forczmański. Uczenie maszynowe 2.
