@@ -70,6 +70,8 @@ W wykładach z kryptologii brak bezpośredniej odpowiedzi na to pytanie, albo pr
 
 Podpisy cyfrowe realizowane są w oparciu o kryptografię asymetryczną. Klucz prywatny jest używany do składania podpisu, zaś klucz publiczny służy do weryfikacji. Podpis cyfrowy zapewnia autentyczność. Bezpieczeństwo podpisu zależy całkowicie od tego czy klucz prywatny jest tajny i klucz publiczny faktycznie należy do nadawcy.
 
+% TODO: Co to znaczy ze podpis jest bezpieczny?
+
 Właściwości bezpieczeństwa informacji (nie modele bezpieczeństwa) to poufność, integralność, osiągalność, autentyczność, rozliczalność, niezaprzeczalność (CIA - confidentiality, integrity, availability) \cite{Pejas}.
 
 \question
@@ -91,7 +93,7 @@ Właściwości bezpieczeństwa informacji (nie modele bezpieczeństwa) to poufno
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{images/spline2.png}
+    \includegraphics[width=0.4\linewidth]{images/spline2.png}
     %\vspace{1em}
     \caption{Przykłady funkcji sklejanych.}
     \label{fig:spline2}
@@ -507,7 +509,7 @@ Wśród metod rozwiązywania RR wyróżniamy:
 
 Wyróżniamy metody jednokrokowe i wielokrokowe oraz ze stałym krokiem i ze zmiennym krokiem, oraz różnych rzędów~\cite{Piela_RR}.
 
-% \subsection{Wpływ zachowań z obszaru kognitywistyki relacji społecznych na rozwój mediów społecznościowych}
+\subsection{Wpływ zachowań z obszaru kognitywistyki relacji społecznych na rozwój mediów społecznościowych}
 % TODO
 % Izabela Rejer. Wprowadzenie do kognitywistyki.
 
@@ -739,7 +741,7 @@ Mając sekwencję obserwacji należy odpowiedzieć jaka jest najbardziej prawdop
 
 Aby odpowiedzieć na to pytanie używamy algorytmu \textbf{Viterbiego} bazujący na metodach programowania dynamicznego. Jego celem jest znalezienie jednego najlepszej sekwencji stanów, która maksymalizuje $P(Q, O|\lambda)$~\cite{Pietrzykowski2020}.
 
-\subsection{Mając sekwencję obserwacji $O = (O_1, O_2, \ldots, O_T)$ i znając tylko $M$ i $N$ (liczba obserwacji i stanów) jak stroić model?}
+\subsubsection{Mając sekwencję obserwacji $O = (O_1, O_2, \ldots, O_T)$ i znając tylko $M$ i $N$ (liczba obserwacji i stanów) jak stroić model?}
 
 Jak dobrać najlepsze zmienne modelu $\lambda = (A, B, \pi)$ aby zmaksymalizować $P(O|\lambda)$?
 
@@ -832,9 +834,19 @@ Pojedynczy neuron (jednostka obliczeniowa) w sieciach splotowych definiuje się 
     \item stride (krok przesunięcia filtru) \cite{Forczmanski2020}.
 \end{itemize}
 
-% \subsection{Podstawowe różnice między sygnałem mowy a sygnałem muzycznym w dziedzinie częstotliwości}
-% TODO
+\subsection{Podstawowe różnice między sygnałem mowy a sygnałem muzycznym w dziedzinie częstotliwości}
 % Tomasz Mąka. Sygnały akustyczne.
+
+Odpowiedź na to pytanie nie była jawnie przedstawiona na wykładach. Jest to raczej wytłumaczone w oparciu o samodzielnie znalezioną wiedzę.
+\question
+
+Warto zauważyć, że jest wielka różnorodność jeżeli chodzi o muzykę i mowę. Nie jest proste stworzyć algorytm, który z dobrą skutecznością rozróżniałby te oba sygnały w całych ich dziedzinach. Branie pod uwagę średniej cechy z dziedziny częstotliwości nie jest użyteczne, ponieważ różny przypadki, czy klasy dźwięków mogą się znacząco różnić od wzorca (np. głos Darth'a Vadera)~\cite{hilmar2021speech}.
+
+Jednym ze sposobów rozróżnienia tych klas jest zwrócenie uwagę na energię w paśmie poniżej 80Hz. Dla większości sygnałów mowy energia w tym paśmie będzie praktycznie zerowa. W przypadku muzyki z niskimi częstotliwościami (bass, bębny) ten zakres częstotliwości będzie się znacząco różnił~\cite{hilmar2021speech}.
+
+Czyli podsumowując muzyka najczęściej wypełnia całe widmo. Sygnał mowy charakteryzuje się częstotliwościami od 85 Hz do 3kHz.
+
+Jeżeli chodzi o sygnał mowy w dziedzinie częstotliwości to możemy wyznaczać cechy w postaci formantów czy częstotliwości fundamentalnej.
 
 \subsection{Metody próbkowania sieci złożonych}
 % Jarosław Jankowski. Sieci złożone.
@@ -867,11 +879,22 @@ W próbkowaniu sieci homogenicznych (jednorodnych) wyróżniamy dwie główne st
 W sieciach heterogenicznych (niejednorodnych) możemy skorzystać z \emph{multi-graph sampling}, pobierania próbek z zachowaniem rozkładu typów, próbkowania z zachowaniem relacji~\cite{Jankowski2020_probkowanie}.
 
 
-% \subsection{Elementy składowe procesu klasyfikacji sygnałów akustycznych}
-% TODO
+\subsection{Elementy składowe procesu klasyfikacji sygnałów akustycznych}
 % Tomasz Mąka. Sygnały akustyczne.
 
-% \subsection{Model SVM (procedura uczenia, wariant liniowy i nieliniowy, przekształcenia jądrowe).}
+Temat ten nie był bezpośrednio podjęty na przedmiocie sygnały akustyczne. Poniższe opracowanie jest zrobione na \textit{chłopski rozum}.
+\question
+
+Proces klasyfikacji sygnałów akustycznych składa się z:
+
+\begin{enumerate}
+    \item Rejestracji (akwizycji) sygnałów - sygnał jest zapisywany w formie cyfrowej
+    \item Wstępne przetwarzanie sygnałów - najczęściej filtrowanie dolnoprzepustowe lub inne procesy mające wyczyścić sygnał (\textit{preprocessing})
+    \item Ekstrakcja i selekcja cech - wyznaczamy i wybieramy cechy niezbędne do klasyfikacji. W przypadku podejścia z wykorzystaniem głębokich sieci neuronowych ekstrakcja i selekcja cech wykonywana jest z użyciem takich modeli.
+    \item Klasyfikacja - z wykorzystaniem klasyfikatorów, np. liniowych (SVM, LDA), sieci neuronowych (MLP) lub sieci głębokich (jako łącznie z etapem ekstrakcji i selekcji cech)~\cite{jagodzinska2019klasyfikacja}.
+\end{enumerate}
+
+\subsection{Model SVM (procedura uczenia, wariant liniowy i nieliniowy, przekształcenia jądrowe).}
 % TODO
 % Marcin Korzeń. Uczenie maszynowe 1.
 
