@@ -17,7 +17,7 @@ Pytania na obronę pracy magisterskiej WI ZUT 2021  🧑‍💻👩‍💻🏫
 <tbody>
 <td align="center">
 <img width="2000" height="0"><br>
-Dokument z pytaniami: <b><a href="">Pobierz tutaj 📥</a></b><br>
+Dokument z pytaniami: <b><a href="https://github.com/karlosos/ZUT_pytania_magisterskie/releases/download/0.1_09.06.2021/ZUT_pytania_magisterskie_09.06.pdf">Pobierz tutaj 📥</a></b><br>
 <sub>Pytania opracowane przez: <a href="https://github.com/karlosos">Karol Działowski</a></sub><br>
 <img width="2000" height="0">
 </td>
@@ -27,7 +27,7 @@ Dokument z pytaniami: <b><a href="">Pobierz tutaj 📥</a></b><br>
 
 <!-- TODO ustawić adres -->
 <p align="center">
-<a href="" target="_blank"><img src="./graphic/download_button.png" alt="Adres do pobrania PDF z pytaniami" width="200"/></a>
+<a href="https://github.com/karlosos/ZUT_pytania_magisterskie/releases/download/0.1_09.06.2021/ZUT_pytania_magisterskie_09.06.pdf" target="_blank"><img src="./graphic/download_button.png" alt="Adres do pobrania PDF z pytaniami" width="200"/></a>
 </p>
 
 ## Propozycje zmian
