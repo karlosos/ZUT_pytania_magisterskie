@@ -11,7 +11,16 @@
 \ProcessOptions\relax
 
 % Load base class (report)
-\LoadClass[a4paper,12pt]{article}
+% Double side
+\LoadClass[a4paper,12pt,twoside]{article}
+\raggedbottom
+\RequirePackage[
+	left 			= 25mm ,
+	right 			= 25mm ,
+	top 			= 20mm ,
+	bottom			= 30mm ,
+	bindingoffset	= 10mm
+]{geometry}
 
 \RequirePackage{xstring}
 \RequirePackage{graphicx}
@@ -65,13 +74,7 @@
 	nogroupskip,
 	nopostdot
 ]{glossaries}
-\RequirePackage[
-	left 			= 25mm ,
-	right 			= 25mm ,
-	top 			= 20mm ,
-	bottom			= 30mm ,
-	bindingoffset	= 0mm
-]{geometry}
+
 
 % Paragraph indent 10mm, skip 0
 \setlength\parskip{1em}%

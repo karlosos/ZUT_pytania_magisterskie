@@ -895,8 +895,25 @@ Proces klasyfikacji sygnałów akustycznych składa się z:
 \end{enumerate}
 
 \subsection{Model SVM (procedura uczenia, wariant liniowy i nieliniowy, przekształcenia jądrowe).}
-% TODO
 % Marcin Korzeń. Uczenie maszynowe 1.
+
+Uczenie liniowego modelu SVM polega na rozwiązanie \textbf{zadania programowania kwadratowego}:
+
+\begin{equation}
+    ||w||^2 \rightarrow \min
+\end{equation}
+
+przy liniowych ograniczeniach
+
+\begin{equation}
+    d^{(i)}\left(\left\langle w, X^{(i)}\right\rangle+b\right) \geqslant 1, \text { dla } i=1, \ldots, p
+\end{equation}
+
+Czyli ma to być znalezienie płaszczyzny z największym marginesem separacji.
+
+W przypadku danych nieseparowalnych liniowo do ograniczeń dodaje się wartość $\varepsilon$. Jest to wariant \emph{soft margin}.
+
+Dla przypadku nieliniowego wykorzystuje się kernel trick, to jest podniesienie wymiarowości danych. Wykorzystanie nieliniowego kernela pozwala stworzyć klasyfikator nieliniowy bez potrzeby przekształcania danych. Algorytm jest formalnie podobny do wariantu liniowego, z wyjątkiem tego, że każdy iloczyn skalarny jest zastępowany nieliniową funkcją jądra. Często wykorzystywanym kernelem jest RBF. 
 
 \subsection{Sieci perceptronowe i metody uczenia perceptronu (warianty algorytmów uczenia, głosowanie, zastosowania)}
 % Marcin Korzeń. Uczenie maszynowe 1.
@@ -1171,38 +1188,38 @@ Podsumowując:
 
 \printbibliography[heading=bibintoc]
 
-\appendix
+% \appendix
 
-\section{Przykłady do kopiowania}
+% \section{Przykłady do kopiowania}
 
-\begin{table}[H]
-\caption{Czas trwania jednej epoki dla rozmiaru obrazu}
-\vspace{1em}
-\centering
-\begin{tabular}{@{}lr@{}}
-\toprule
-Rozmiar          & Czas {[}s{]} \\ \midrule
-$32 \times 32$   & 0.1288       \\
-$64 \times 64$   & 0.2000       \\
-$128 \times 128$ & 1.046        \\ \bottomrule
-\end{tabular}
-\end{table}
+% \begin{table}[H]
+% \caption{Czas trwania jednej epoki dla rozmiaru obrazu}
+% \vspace{1em}
+% \centering
+% \begin{tabular}{@{}lr@{}}
+% \toprule
+% Rozmiar          & Czas {[}s{]} \\ \midrule
+% $32 \times 32$   & 0.1288       \\
+% $64 \times 64$   & 0.2000       \\
+% $128 \times 128$ & 1.046        \\ \bottomrule
+% \end{tabular}
+% \end{table}
 
-\code{Przykład kodu}
-{Opracowanie własne}{\label{kod:przyklad}}
-\begin{lstlisting}[language=Python]
-discriminator = make_discriminator_model()
-generator = make_generator_model()
-\end{lstlisting}
+% \code{Przykład kodu}
+% {Opracowanie własne}{\label{kod:przyklad}}
+% \begin{lstlisting}[language=Python]
+% discriminator = make_discriminator_model()
+% generator = make_generator_model()
+% \end{lstlisting}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{images/sample.png}
-    %\vspace{1em}
-    \caption{Przykładowy obrazek}
-    \label{fig:pdgd}
-    \source{Opracowanie własne}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\linewidth]{images/sample.png}
+%     %\vspace{1em}
+%     \caption{Przykładowy obrazek}
+%     \label{fig:pdgd}
+%     \source{Opracowanie własne}
+% \end{figure}
 
 
 \end{document}
