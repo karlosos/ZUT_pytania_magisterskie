@@ -33,7 +33,7 @@ Pierwszy etap procesu przekształcania postaci analogowej w cryfrową to \textbf
 
 \paragraph{Twierdzenie Nyquista} definiuje minimalną częstotliwość niezbędną w celu osiągnięcia precyzyjnej reprezentacji sygnału analogowego. Rozszerzeniem tego twierdzenia jest \textbf{prawo Kotielnikowa-Shannowa}, które mówi, że w celu osiągnięcia dokładnej reprezentacji sygnału analogowego minimalna częstotliwość próbkowania powinna być co najmniej dwa razy wyższa od składowej o najwyższej częstotliwości sygnału oryginalnego. Ta minimalna częstotliwość jest często nazywana częstotliwością Nyquista lub \textbf{granicą Nyquista}.
 
-W przypadku, gdy częstotliwość próbkowania jest mniejsza od granicy Nuqyista, to pasma częstotliwościowe nakładają się na siebie. Wywołuje to interferencję sygnału wyjściowego i efekt ten nazywany jest \textbf{aliasingiem} (utożsamianiem). Aby radzić sobie aliasingiem możemy wykorzystać wyższą częstotliwość próbkowania lub filtr dolnoprzepustowy (antyaliasingowy)~\cite{Cariow_3}.
+W przypadku, gdy częstotliwość próbkowania jest mniejsza od granicy Nuqyista, to pasma częstotliwościowe nakładają się na siebie. Wywołuje to interferencję sygnału wyjściowego i efekt ten nazywany jest \textbf{aliasingiem} (utożsamianiem). Aby radzić sobie z aliasingiem możemy wykorzystać wyższą częstotliwość próbkowania lub filtr dolnoprzepustowy (antyaliasingowy)~\cite{Cariow_3}.
 
 \begin{figure}[H]
     \centering
@@ -116,15 +116,15 @@ Najczęściej analizowane cechy stylów poznawczych to: refleksyjność-impulsyw
     \item słowna i obrazowa.
 \end{itemize}
 
-Podsumowując style poznawcze to opis tego, jak indywidualni ludzie postrzegają i odbierają otaczający ich świat/informacje/wiedzę. Poznanie stylów poznawczych pozwala lepiej organizować sobie warunku w których działamy i zwiększa skuteczność komunikacji pomiędzy ludźmi~\cite{perso_style}.
+Podsumowując style poznawcze to opis tego, jak indywidualni ludzie postrzegają i odbierają otaczający ich świat/informacje/wiedzę. Poznanie stylów poznawczych pozwala lepiej organizować sobie warunki w których działamy i zwiększa skuteczność komunikacji pomiędzy ludźmi~\cite{perso_style}.
 
 
 \subsection{Korzyści wynikające z zastosowania grafowych baz danych do przetwarzania dużych zbiorów danych o strukturach grafowych}
 % Przemysław Korytkowski. Duże zbiory danych.
 
-Sieci grafowe są wykorzystywane w zadaniach, gdzie praca na strukturach grafowych jest bardziej korzystna o tradycyjnych tabel relacyjnych. Są to najczęściej problemy, które charakteryzują się dużą liczbą połączeń pomiędzy elementami (relacji). Relacje te są priorytetowym elementem grafowych baz danych.
+Sieci grafowe są wykorzystywane w zadaniach, gdzie praca na strukturach grafowych jest bardziej korzystna od tradycyjnych baz relacyjnych. Są to najczęściej problemy, które charakteryzują się dużą liczbą połączeń pomiędzy elementami (dużą liczbą relacji). Relacje te są priorytetowym elementem grafowych baz danych.
 
-Korzyścią korzystania z takich baz jest większa wydajność dla danych o wielu asocjacjach (połączeniach). W bazach grafowych nie korzysta się z łączenia tabel jak w przypadku tradycyjnych baz relacyjnych. Inną korzyścią jest łatwiejsza reprezentacja niektórych problemów za pomocą struktury grafowej.
+Korzyścią korzystania z takich baz jest większa wydajność dla danych o wielu asocjacjach (połączeniach, relacjach). \textbf{W bazach grafowych nie korzysta się z łączenia tabel jak w przypadku tradycyjnych baz relacyjnych.} Inną korzyścią jest łatwiejsza reprezentacja niektórych problemów za pomocą struktury grafowej.
 
 Bazy grafowe są chętnie wykorzystywane w aplikacjach społecznościowych (modelując połączenia pomiędzy użytkownikami), w aplikacjach do rekomendacji produktów, wyznaczania ścieżek czy tras (autobusowych, lotniczych)~\cite{grafowe}. 
 
@@ -141,7 +141,7 @@ Spark jest skalowalny, bo dzieli obliczenia na zadania i rozprasza je po węzła
 
 Spark jest napisany w języku Scala. Inne obsługiwane języki to Python i Java.
 
-Główną ideą spark jest RFF (resilient Distributed Dataset) - model rozproszonych danych. Metody obliczeniowe przyjmuja na wejściu obiekty RDD i wynikiem ich przetwarzania jest zredukowany obiekt RDD~\cite{Malachowski_spark}.
+Główną ideą spark jest RDD (Resilient Distributed Dataset) - model rozproszonych danych. Metody obliczeniowe przyjmują na wejściu obiekty RDD i wynikiem ich przetwarzania jest zredukowany obiekt RDD~\cite{Malachowski_spark}.
 
 Apache Spark wykorzystywany jest w systemach rekomendacyjnych (Spotify, Netlifx), w systemach e-commerce (Allegro), w przetwarzaniu danych strumieniowych, uczeniu maszynowym, fog computing (IoT).
 
@@ -206,7 +206,7 @@ W filtrach NOI do wyznaczenia wartości wyjściowych wykorzystuje się nie tylko
 
 W odróżnieniu od filtrów SOI w filtrach tego typu każdy element sekwencji wyjściowej zależy od wartości bieżących oraz poprzednich elementów sekwencji wejściowej zarówno jak i od wartości poprzednich elementów sekwencji wyjściowej~\cite{Cariow_7}.
 
-Jeżeli sekwencja wejściowa filtru tego typu stałaby się nagle ciągiem wartości zerowych, to sekwencja wyjściowa mogłaby (i to w pewnych warunkach już na zawsze) pozostać się ciągiem elementów niezerowych~\cite{Cariow_7}.
+Jeżeli sekwencja wejściowa filtru tego typu stałaby się nagle ciągiem wartości zerowych, to sekwencja wyjściowa mogłaby (i to w pewnych warunkach już na zawsze) pozostać ciągiem elementów niezerowych~\cite{Cariow_7}.
 
 \begin{equation}
     y_{n}=\sum_{0}^{N} a_{k} x_{n-k}+\sum_{1}^{M} b_{k} y_{n-k}
@@ -214,7 +214,7 @@ Jeżeli sekwencja wejściowa filtru tego typu stałaby się nagle ciągiem warto
 
 Aczkolwiek pojawienie się niestabilności jest możliwe w filtrach NOI, to mają one taką zaletę, że dla takiej samej charakterystyki nachylenia wymagają mniejszej liczby odprowadzeń, niż filtry SOI~\cite{Cariow_7}.
 
-Oznacza to, że jeśli nasze zasoby obliczeniowe są ograniczone, możemy zastosować filtr NOI zwracając jednak baczną uwagę na staranne zaprojektowanie jego stabilności~\cite{Cariow_7}.
+Oznacza to, że \textbf{jeśli nasze zasoby obliczeniowe są ograniczone, możemy zastosować filtr NOI} zwracając jednak baczną uwagę na staranne zaprojektowanie jego stabilności~\cite{Cariow_7}.
 
 Filtry NOI są powszechnie stosowane przy realizacji sprzężeń międzyukładowych dla prądu zmiennego oraz w celu wygładzania (uśredniania) przebiegów~\cite{Cariow_7}.
 
@@ -364,7 +364,7 @@ Algorytm numeryczny jest \textbf{źle uwarunkowany} jeśli małe zmiany danych p
 \subsection{Programowanie kodu wielowątkowego wraz z wzajemnym wykluczaniem w C++ 11 Threads}
 % Marek Pałkowski. Obliczenia dużej mocy.
 
-Wraz z standardem C++11 wprowadzono do biblioteki standardowej moduł do zarządzania wątkami, instrukcjami warunkowymi czy mutexami. Dokumentacja dostępna jest pod adresem \url{https://en.cppreference.com/w/cpp/thread}.
+Wraz z standardem C++11 wprowadzono do biblioteki standardowej moduł do zarządzania wątkami, instrukcjami warunkowymi czy mutexami (mutexy służą do zapewnienia ochrony przed jednoczesnym dostępem do danych, jest to mechanizm wzjamnego wykluczania). Dokumentacja dostępna jest pod adresem \url{https://en.cppreference.com/w/cpp/thread}.
 
 Dzięki temu nie trzeba korzystać z wątków z biblioteki \lstinline{pthreads}, która była przeznaczona do języka C.
 
@@ -390,32 +390,47 @@ int main()
 
 Inną możliwością jest tworzenie wątków przy wykorzystaniu wyrażenia lambda.
 
-\code{Przykład tworzenia wątków z wykorzystaniem wyrażanie lambda w C++11 threads.}
-{\url{https://www.bogotobogo.com/cplusplus/C11/1_C11_creating_thread.php}}{\label{kod:przyklad}}
+\code{Przykład tworzenia wątków z wykorzystaniem mutexów.}
+{\url{https://en.cppreference.com/w/cpp/thread/mutex}}{\label{kod:przyklad}}
 \begin{lstlisting}[language=C++]
 #include <iostream>
+#include <map>
+#include <string>
+#include <chrono>
 #include <thread>
-int main()  
+#include <mutex>
+ 
+std::map<std::string, std::string> g_pages;
+std::mutex g_pages_mutex;
+ 
+void save_page(const std::string &url)
 {
-    int x = 9;
-    std::thread threadObj([]{
-            for(int i = 0; i < 10000; i++)
-                std::cout<<"Display Thread Executing"<<std::endl;
-            });
-            
-    for(int i = 0; i < 10000; i++)
-        std::cout<<"Display From Main Thread"<<std::endl;
-        
-    threadObj.join();
-    std::cout<<"Exiting from Main Thread"<<std::endl;
-    return 0;
+    // simulate a long page fetch
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    std::string result = "fake content";
+ 
+    std::lock_guard<std::mutex> guard(g_pages_mutex);
+    g_pages[url] = result;
+}
+ 
+int main() 
+{
+    std::thread t1(save_page, "http://foo");
+    std::thread t2(save_page, "http://bar");
+    t1.join();
+    t2.join();
+ 
+    // safe to access g_pages without lock now, as the threads are joined
+    for (const auto &pair : g_pages) {
+        std::cout << pair.first << " => " << pair.second << '\n';
+    }
 }
 \end{lstlisting}
 
 \subsection{Cechy środowiska Hadoop}
 % Przemysław Korytkowski. Duże zbiory danych.
 
-Apache Hadoop to otwarta platforma programistyczna napisana w języku Java przeznaczona do rozproszonego składowania i przetwarzania wielkich zbiorów danych przy pomocy klastrów komputerowych. Wszystkie moduły Hadoop zostały zaprojektowane z założeniem, że awarie sprzętowe są rzeczą naturalną i powinny być automatycznie obsługiwane~\cite{Korytkowski_hadoop}.
+Apache Hadoop to otwarta platforma programistyczna napisana w języku Java przeznaczona do \textbf{rozproszonego składowania i przetwarzania wielkich zbiorów danych przy pomocy klastrów komputerowych}. Wszystkie moduły Hadoop zostały zaprojektowane z założeniem, że awarie sprzętowe są rzeczą naturalną i powinny być automatycznie obsługiwane~\cite{Korytkowski_hadoop}.
 
 Cechy szczególne środowiska Hadoop:
 
@@ -450,13 +465,13 @@ Na błąd całkowity obliczeń numerycznych składają się następujące rodzaj
     \item błąd zaokrąglenia.
 \end{itemize}
 
-Błąd wejścia zależy od niedokładności pomiarów, przeoczeń, błędnych odczytów, brakiem możliwości zapisu dowolnej liczby rzeczywistej w postaci liczby maszynowej~\cite{Piela_Wstep}.
+\textbf{Błąd wejścia zależy od niedokładności pomiarów}, przeoczeń, błędnych odczytów, brakiem możliwości zapisu dowolnej liczby rzeczywistej w postaci liczby maszynowej~\cite{Piela_Wstep}.
 
-Błąd metody zależy od konieczności przybliżania wartości ciągłych, nie zależy od błędów wejścia i zaokrąglenia, zależy od konieczności reprezentowania procesów nieskończonych~\cite{Piela_Wstep}.
+\textbf{Błąd metody zależy od konieczności przybliżania wartości ciągłych}, nie zależy od błędów wejścia i zaokrąglenia, zależy od konieczności reprezentowania procesów nieskończonych~\cite{Piela_Wstep}.
 
 Błąd dyskretyzacji powstaje w wyniku aproksymacji struktur ciągłych za pomocą układów dyskretnych (np. całkowanie numeryczne)~\cite{Piela_Wstep}.
 
-Błąd zaokrąglenia wynika z potrzeby reprezentowania liczb w postaci maszynowej (na skończonej liczby bitów). Z tego powodu powstaje zjawisko obcięcia lub zaokrąglenia.
+\textbf{Błąd zaokrąglenia wynika z potrzeby reprezentowania liczb w postaci maszynowej} (na skończonej liczbie bitów). Z tego powodu powstaje zjawisko obcięcia lub zaokrąglenia.
 
 \subsection{Standard C++ 17 Parallel}
 % Marek Palkowski. Obliczenia dużej mocy.
@@ -469,7 +484,7 @@ Przykładowe algorytmy to:
 \begin{itemize}
     \item sort
     \item reduce
-    \item for\_each
+    \item \textbf{for\_each}
     \item count
     \item find
     \item transform\_reduce~\cite{MicrosoftCPP17}
@@ -510,8 +525,10 @@ Wśród metod rozwiązywania RR wyróżniamy:
 Wyróżniamy metody jednokrokowe i wielokrokowe oraz ze stałym krokiem i ze zmiennym krokiem, oraz różnych rzędów~\cite{Piela_RR}.
 
 \subsection{Wpływ zachowań z obszaru kognitywistyki relacji społecznych na rozwój mediów społecznościowych}
-% TODO
 % Izabela Rejer. Wprowadzenie do kognitywistyki.
+
+Brak informacji na ten temat. Można powiedzieć jaki wpływ media społecznościowe mają na rozwój kognitywistyki (bo dostarczają platformy do wielu badań). Nie wiem jaki ,,zachowania z obszaru kognitywistyki relacji spiłecznych'' miały wpływ na social-media. Nie wiem nawet co to znaczy.
+\question
 
 \subsection{Programowanie przenośnego kodu wielowątkowego na przykładzie PosixThreads}
 % Marek Pałkowski. Obliczenia dużej mocy.
@@ -622,12 +639,12 @@ Okulografia (ang. eye-tracking) technika śledzenia punktu skupienia wzroku, ruc
 Okulografia wykorzystywana jest w:
 
 \begin{enumerate}
-    \item marketingu - w ramach badań nad tym co przykuwa uwagę konsumentów, przy projektowaniu reklam, opakowań
-    \item rozrywce (gry wideo) - wykorzystanie eye-trackingu w celach rozrywkowych, np. w grach komputerowych. Przykładem eye-trackera do zastosowań gamingowych jest \textit{Tobii Eye Tracker 5}.
-    \item badaniach nad doświadczeniem użytkownika (UX) - przy projektowaniu i testowaniu różnego rodzaju interfejsów graficznych i systemów komputerowych (przykładowo testowanie stron internetowych budując mapy ciepła, ścieżki fiksacji, itd.)
-    \item motoryzacji - wykrywanie zmęczenia, przy projektowaniu desek rozdzielczych
-    \item interfejsach człowiek komputer - w komunikacji z komputerem 
-    \item medycynie - w diagnostyce (schizofrenia, alzheimer, autyzm, adhd, parkinson), w leczeniu
+    \item Marketingu - w ramach badań nad tym co przykuwa uwagę konsumentów, przy projektowaniu reklam, opakowań
+    \item Rozrywce (gry wideo) - wykorzystanie eye-trackingu w celach rozrywkowych, np. w grach komputerowych. Przykładem eye-trackera do zastosowań gamingowych jest \textit{Tobii Eye Tracker 5}.
+    \item Badaniach nad doświadczeniem użytkownika (UX) - przy projektowaniu i testowaniu różnego rodzaju interfejsów graficznych i systemów komputerowych (przykładowo testowanie stron internetowych budując mapy ciepła, ścieżki fiksacji, itd.)
+    \item Motoryzacji - wykrywanie zmęczenia, przy projektowaniu desek rozdzielczych
+    \item Interfejsach człowiek komputer - w komunikacji z komputerem 
+    \item Medycynie - w diagnostyce (schizofrenia, alzheimer, autyzm, ADHD, parkinson), w leczeniu
 \end{enumerate}
 
 \section{Inteligencja obliczeniowa}
@@ -754,7 +771,7 @@ Jest to najtrudniejszy z problemów. W tym celu używa się podejścia iteracyjn
 
 Podstawową cechą dźwięku jest częstotliwość podstawowa (fundamentalna) oznaczana jako $F_0$. Częstotliwość podstawowa jest związana z wrażeniem wysokości dźwięku~\cite{Polrolniczak}.
 
-W dziedzinie czasu $F_0$ możemy wyznaczyć w oparciu długości okresu pomiędzy powtarzającymi się wystąpieniami wzorca (piku). W dziedzinie częstotliwości $F_0$ jest utożsamiane z lokalizacją pierwszego piku~\cite{Polrolniczak}.
+W dziedzinie czasu $F_0$ możemy wyznaczyć na podstawie długości okresu pomiędzy powtarzającymi się wystąpieniami wzorca (piku). W dziedzinie częstotliwości $F_0$ jest utożsamiane z lokalizacją pierwszego piku~\cite{Polrolniczak}.
 
 Wyznaczenie $F_0$ w przypadku dźwięków naturalnych jest problematyczne. W tym celu stosuje się metody czasowe (w dziedzinie czasu) lub widmowe (w dziedzinie częstotliwości)~\cite{Polrolniczak}.
 
@@ -791,7 +808,7 @@ Pozyskiwanie umiejętności nie wymaga kompletnej i poprawnej teorii problemu. U
 
 Agent (uczeń) działa w pewnym środowisku i zachowuje się w pożądany sposób. Wzmocnienie pełni rolę sprzężenie zwrotnego, oceniające ruchy agenta. Uczeń dowiadując się o wzmocnieniu stara się modyfikować swoje działania (strategie) tak aby w przyszłości było ono ocenianie lepiej~\cite{Pluto}.
 
-Pozyskiwania wiedza w etapie uczenia jest wyrażana za pomocą strategii. Jest to dowolna funkcja, która dla każdego stanu przypisuje daną akcję. Strategia optymalna, to taka strategia, dla której nie istnieje strategia od niej lepsza~\cite{Pluto}.
+Pozyskiwana wiedza w etapie uczenia jest wyrażana za pomocą strategii. Jest to dowolna funkcja, która dla każdego stanu przypisuje daną akcję. Strategia optymalna, to taka strategia, dla której nie istnieje strategia od niej lepsza~\cite{Pluto}.
 
 Do uczenia wykorzystywane jest programowanie dynamiczne, czyli dzielenie problemu na podproblemy. Metody programowania dynamicznego umożliwiają wartościowanie strategii, czyli wyznaczanie funkcji wartości $V$ i funkcji wartości akcji $Q$~\cite{Pluto}.
 
@@ -840,9 +857,9 @@ Pojedynczy neuron (jednostka obliczeniowa) w sieciach splotowych definiuje się 
 Odpowiedź na to pytanie nie była jawnie przedstawiona na wykładach. Jest to raczej wytłumaczone w oparciu o samodzielnie znalezioną wiedzę.
 \question
 
-Warto zauważyć, że jest wielka różnorodność jeżeli chodzi o muzykę i mowę. Nie jest proste stworzyć algorytm, który z dobrą skutecznością rozróżniałby te oba sygnały w całych ich dziedzinach. Branie pod uwagę średniej cechy z dziedziny częstotliwości nie jest użyteczne, ponieważ różny przypadki, czy klasy dźwięków mogą się znacząco różnić od wzorca (np. głos Darth'a Vadera)~\cite{hilmar2021speech}.
+Warto zauważyć, że jest wielka różnorodność jeżeli chodzi o muzykę i mowę. Nie jest proste stworzyć algorytm, który z dobrą skutecznością rozróżniałby te oba sygnały w całych ich dziedzinach. Branie pod uwagę średniej cechy z dziedziny częstotliwości nie jest użyteczne, ponieważ różne przypadki, czy klasy dźwięków mogą znacząco różnić się od wzorca (np. głos Darth'a Vadera)~\cite{hilmar2021speech}.
 
-Jednym ze sposobów rozróżnienia tych klas jest zwrócenie uwagę na energię w paśmie poniżej 80Hz. Dla większości sygnałów mowy energia w tym paśmie będzie praktycznie zerowa. W przypadku muzyki z niskimi częstotliwościami (bass, bębny) ten zakres częstotliwości będzie się znacząco różnił~\cite{hilmar2021speech}.
+Jednym ze sposobów rozróżnienia tych klas jest spojrzenie na energię w paśmie poniżej 80Hz. Dla większości sygnałów mowy energia w tym paśmie będzie praktycznie zerowa. W przypadku muzyki z niskimi częstotliwościami (bass, bębny) ten zakres częstotliwości będzie się znacząco różnił~\cite{hilmar2021speech}.
 
 Czyli podsumowując muzyka najczęściej wypełnia całe widmo. Sygnał mowy charakteryzuje się częstotliwościami od 85 Hz do 3kHz.
 
@@ -897,7 +914,7 @@ Proces klasyfikacji sygnałów akustycznych składa się z:
 \subsection{Model SVM (procedura uczenia, wariant liniowy i nieliniowy, przekształcenia jądrowe).}
 % Marcin Korzeń. Uczenie maszynowe 1.
 
-Uczenie liniowego modelu SVM polega na rozwiązanie \textbf{zadania programowania kwadratowego}:
+Uczenie liniowego modelu SVM polega na rozwiązaniu \textbf{zadania programowania kwadratowego}:
 
 \begin{equation}
     ||w||^2 \rightarrow \min
@@ -913,7 +930,7 @@ Czyli ma to być znalezienie płaszczyzny z największym marginesem separacji.
 
 W przypadku danych nieseparowalnych liniowo do ograniczeń dodaje się wartość $\varepsilon$. Jest to wariant \emph{soft margin}.
 
-Dla przypadku nieliniowego wykorzystuje się kernel trick, to jest podniesienie wymiarowości danych. Wykorzystanie nieliniowego kernela pozwala stworzyć klasyfikator nieliniowy bez potrzeby przekształcania danych. Algorytm jest formalnie podobny do wariantu liniowego, z wyjątkiem tego, że każdy iloczyn skalarny jest zastępowany nieliniową funkcją jądra. Często wykorzystywanym kernelem jest RBF. 
+Dla przypadku nieliniowego wykorzystuje się kernel trick, to jest podniesienie wymiarowości danych. Wykorzystanie nieliniowego kernela pozwala stworzyć klasyfikator nieliniowy bez potrzeby przekształcania danych. Algorytm jest formalnie podobny do wariantu liniowego, z wyjątkiem tego, że \textbf{każdy iloczyn skalarny jest zastępowany nieliniową funkcją jądra}. Często wykorzystywanym kernelem jest RBF. 
 
 \subsection{Sieci perceptronowe i metody uczenia perceptronu (warianty algorytmów uczenia, głosowanie, zastosowania)}
 % Marcin Korzeń. Uczenie maszynowe 1.
@@ -959,11 +976,11 @@ W głębokim uczeniu rozmiar próby uczącej powiększa się za pomocą augmenta
 
 Algorytmy z rodziny boosting polegają na reważeniu przykładów uczących. Ich zasadniczą cechą jest odporność na przeuczenie.
 
-Klasyfikator boosting składa się z wielu słabych klasyfikatorów. Najczęściej łączy się je z \emph{decision stump} - bardzo zdegenerowane drzewa decyzyjnego, lub innymi wariantami klasyfikatorów (drzewa decyzyjne, SVM, naiwny Bayes) \cite{Klesk2020}.
+Klasyfikator boosting składa się z wielu słabych klasyfikatorów. Najczęściej łączy się je z \emph{decision stump} (zdegenerowane drzewo decyzyjne), lub innymi wariantami klasyfikatorów (drzewa decyzyjne, SVM, naiwny Bayes) \cite{Klesk2020}.
 
 Uczenie klasyfikatora składa się z wielu rund. W każdej iteracji uczony jest słaby klasyfikator na danych uczących używając ważonych przykładów. Wagi przykładów aktualizuje się tak, że najważniejsze stają się próbki źle sklasyfikowane \cite{Klesk2020}.
 
-W pojedynczej rundzie wybór słabego klasyfikatora odbywa się teoretycznie według dowolnego obranego kryterium błędu. Najczęściej rozważa się minimalizację błędu klasyfikacji lub minimalizację kryterium wykładniczego \cite{Klesk2020}.
+W pojedynczej rundzie wybór słabego klasyfikatora odbywa się teoretycznie według dowolnie obranego kryterium błędu. Najczęściej rozważa się minimalizację błędu klasyfikacji lub minimalizację kryterium wykładniczego \cite{Klesk2020}.
 
 Wystarczy że słabe klasyfikatory będą dawać odpowiedzi różne od 0.5. Gdy dokładność klasyfikatora jest mniejsza niż 0.5 to odpowiedź klasyfikatora jest negowana.
 
@@ -976,7 +993,7 @@ Rozwinięciem AdaBoost jest RealBoost. Słabe klasyfikatory są rzeczywistoliczb
 
 Algorytm Apriori opiera się na własności, że wszystkie podzbiory częstego zbioru przedmiotów również muszą być częste. Przykładowo, w transakcjach często występuje reguła: bułka, ser żółty, pomidor $\rightarrow$ szynka, to wszystkie elementy tej reguły też często występują w zbiorze transakcji \cite{Kolodziejczyk2020}.
 
-Algorytm Apriori jest przeznaczony do znajdowania wzorców w dużych zbiorach danych. Jeśli jakieś wzór występuje często, to jest on uważany za ,,interesujący'' \cite{Kolodziejczyk2020}.
+Algorytm Apriori jest przeznaczony do znajdowania wzorców w dużych zbiorach danych. Jeśli jakiś wzór występuje często, to jest on uważany za ,,interesujący'' \cite{Kolodziejczyk2020}.
 
 Algorytm składa się z dwóch etapów: znajdowania częstych wzorców z wykorzystaniem progu minimalnego wsparcia, oraz znajdowaniem odpowiednich reguł z progiem minimalnego zaufania. Generowanie kandydatów do wzorców można przeprowadzić metodą brute-force, albo metodami $F_{k-1} \times F_1$, lub $F_{k-1} \times F_{k-1}$. Metoda brute-force nie sprawdzi się w bardzo dużych zbiorach danych.
 
@@ -989,11 +1006,11 @@ Algorytm składa się z dwóch etapów: znajdowania częstych wzorców z wykorzy
 \end{figure}
 
 
-Na początku tworzymy zbiór potencjalnych wzorców jednoelementowych z danym progiem wsparcie. Wyszukiwanie przeprowadzamy iteracyjnie zwiększając wielkości zbiorów. 
+Na początku tworzymy zbiór potencjalnych wzorców jednoelementowych z danym progiem wsparcia. Wyszukiwanie przeprowadzamy iteracyjnie zwiększając wielkości zbiorów. 
 
 Mając wygenerowane potencjalne wzorce z pierwszego kroku należy wygenerować reguły z zaufaniem większym niż ustalony minimalny próg wsparcia. Wygenerowane reguły należy posortować malejąco na podstawie metryki \emph{lift}.
 
-\subsection{Przykład siedzi bayesowskiej (przekonań): struktura sieci, właściwości i jej interpretacja oraz uczenie}
+\subsection{Przykład sieci bayesowskiej (przekonań): struktura sieci, właściwości i jej interpretacja oraz uczenie}
 % Joanna Kołodziejczyk. Eksploracja danych.
 
 Sieć Bayesowska (sieć przekonań) jest probabilistycznym modelem grafowym, który reprezentuje zbiór zmiennych i ich zależności warunkowych za pomocą acyklicznego grafu. Sieci Bayesowskie są dobre do przewidywania zdarzeń zależnych (obliczania \emph{likelihood} \cite{wiki:Likelihood_function}) na podstawie zdarzenia zaobserwowanego 
@@ -1015,7 +1032,7 @@ Na laboratorium wykorzystywaliśmy bibliotekę \emph{bnlearn}\footnote{\url{http
 \subsection{Deskryptory cech niskopoziomowych - wybrane algorytmy w odniesieniu do wykorzystywanych cech}
 % Dariusz Frejlichowski. Ekstrakcja cech.
 
-Deskryptory cech odnoszą się do zagadnienia ekstrakcji cech. Deskryptor opisuje daną cechę za pomocą wartości numerycznych. Poniżej opisywano tylko deskryptory odnoszące się do obrazów. Oprócz tego istnieją inne deskryptory, np. w rozpoznawaniu dźwięku częstotliwość fundamentalna, formanty, itd.
+Deskryptory cech odnoszą się do zagadnienia ekstrakcji cech. Deskryptor opisuje daną cechę za pomocą wartości numerycznych. Poniżej opisano tylko deskryptory odnoszące się do obrazów. Oprócz tego istnieją inne deskryptory, np. w rozpoznawaniu dźwięku częstotliwość fundamentalna, formanty, itd.
 
 \textbf{Atrybuty niższego poziomu abstrakcji} - metadane typu sygnałowego, są wartościowane przez komputer (np. kolor dominujący, histogram krawędzi, aktywność ruchu w obrazie, czy linia melodyczna utworu muzycznego) \cite{Frejlichowski2020}.
 

@@ -12,14 +12,23 @@
 
 % Load base class (report)
 % Double side
-\LoadClass[a4paper,12pt,twoside]{article}
-\raggedbottom
+% \LoadClass[a4paper,12pt,twoside]{article}
+% \raggedbottom
+% \RequirePackage[
+% 	left 			= 25mm ,
+% 	right 			= 25mm ,
+% 	top 			= 20mm ,
+% 	bottom			= 30mm ,
+% 	bindingoffset	= 10mm
+% ]{geometry}
+
+\LoadClass[a4paper,12pt]{article}
 \RequirePackage[
 	left 			= 25mm ,
 	right 			= 25mm ,
 	top 			= 20mm ,
 	bottom			= 30mm ,
-	bindingoffset	= 10mm
+	bindingoffset	= 0mm
 ]{geometry}
 
 \RequirePackage{xstring}
