@@ -70,11 +70,15 @@ W wykładach z kryptologii brak bezpośredniej odpowiedzi na to pytanie, albo pr
     \source{Wikimedia \url{https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Private_key_signing.svg/1200px-Private_key_signing.svg.png}}
 \end{figure}
 
-Podpisy cyfrowe realizowane są w oparciu o kryptografię asymetryczną. Klucz prywatny jest używany do składania podpisu, zaś klucz publiczny służy do weryfikacji. Podpis cyfrowy zapewnia autentyczność. Bezpieczeństwo podpisu zależy całkowicie od tego czy klucz prywatny jest tajny i klucz publiczny faktycznie należy do nadawcy.
+Podpisy cyfrowe realizowane są w oparciu o kryptografię asymetryczną. Klucz prywatny jest używany do składania podpisu, zaś klucz publiczny służy do weryfikacji. Podpis cyfrowy zapewnia autentyczność. Bezpieczeństwo podpisu zależy od tego czy klucz prywatny jest tajny i klucz publiczny faktycznie należy do nadawcy oraz od bezpieczeństwa używanej funkcji skrótu. 
 
-% TODO: Co to znaczy ze podpis jest bezpieczny?
+\textbf{Właściwości bezpieczeństwa informacji} to poufność, integralność, osiągalność, autentyczność, rozliczalność, niezaprzeczalność (CIA - confidentiality, integrity, availability) \cite{Pejas}.
 
-Właściwości bezpieczeństwa informacji (nie modele bezpieczeństwa) to poufność, integralność, osiągalność, autentyczność, rozliczalność, niezaprzeczalność (CIA - confidentiality, integrity, availability) \cite{Pejas}.
+Podpis cyfrowy powinien zapewniać autentyczność pochodzenia, niezaprzeczalność i integralność.
+
+\textbf{Modele bezpieczeństwa} określają jakie problemy bezpieczeństwa występują w systemach informacyjnych. Pierwszym z nim jest \textbf{model ochrony danych w sieci komputerowej} gdzie intruz podsłuchuje kanał komunikacyjny i próbuje odgadnąć przesyłane wiadomości. 
+
+Drugim modelem jest \textbf{model obrony dostępu do sieci komputerowej} gdzie intruz chce dostać się do system informatycznego.
 
 \question
 
@@ -330,6 +334,16 @@ b_{m}
 \end{array}\right)
 $$
 
+Głównym podziałem metod jest podział na \textbf{metody dokładne} oraz \textbf{przybliżone}. 
+
+\textbf{Metody dokładne} to: metoda podstawiania, metoda przeciwnych współczynników, wzory Cramera, metoda eliminacji Gaussa, metoda eliminacji Gaussa-Jordana i metody wykorzystujące rozkłady macierzy.
+
+Metody te dla zadań źle uwarunkowanych mogą dawać duże błędy. Mogą być niestabilne ze względu na błędy zaokrągleń. Zaletą jest mała liczba obliczeń.
+
+\textbf{Metody przybliżone} to: metoda Richardsona, metoda iteracji prostej (metoda Jacobiego), metoda Gaussa-Seidela, metoda nadrelaksacji, metoda najszybszego spadku, metoda gradientów sprzężonych. 
+
+Są to metody iteracyjne, które zbiegają ku rozwiązaniowi układu. Metody te są stabilne, efektywne dla rzadkich i dużych układów.
+
 \textbf{Metody rozwiązywania} układów równań liniowych~\cite{Piela_URL}:
 
 \begin{itemize}
@@ -370,64 +384,9 @@ Wraz z standardem C++11 wprowadzono do biblioteki standardowej moduł do zarząd
 
 Dzięki temu nie trzeba korzystać z wątków z biblioteki \lstinline{pthreads}, która była przeznaczona do języka C.
 
-\code{Przykład tworzenia wątków z wykorzystaniem C++11 threads.}
-{\url{https://www.bogotobogo.com/cplusplus/C11/1_C11_creating_thread.php}}{\label{kod:przyklad}}
-\begin{lstlisting}[language=C++]
-#include <iostream>
-#include <thread>
+Tworzenie wątku za pomocą instrukcji \lstinline{std::thread t(&thread_function);}. Inną możliwością jest tworzenie wątków przy wykorzystaniu wyrażenia lambda.
 
-void thread_function()
-{
-    std::cout << "thread function\n";
-}
-
-int main()
-{
-    std::thread t(&thread_function);   // t starts running
-    std::cout << "main thread\n";
-    t.join();   // main thread waits for the thread t to finish
-    return 0;
-}
-\end{lstlisting}
-
-Inną możliwością jest tworzenie wątków przy wykorzystaniu wyrażenia lambda.
-
-\code{Przykład tworzenia wątków z wykorzystaniem mutexów.}
-{\url{https://en.cppreference.com/w/cpp/thread/mutex}}{\label{kod:przyklad}}
-\begin{lstlisting}[language=C++]
-#include <iostream>
-#include <map>
-#include <string>
-#include <chrono>
-#include <thread>
-#include <mutex>
- 
-std::map<std::string, std::string> g_pages;
-std::mutex g_pages_mutex;
- 
-void save_page(const std::string &url)
-{
-    // simulate a long page fetch
-    std::this_thread::sleep_for(std::chrono::seconds(2));
-    std::string result = "fake content";
- 
-    std::lock_guard<std::mutex> guard(g_pages_mutex);
-    g_pages[url] = result;
-}
- 
-int main() 
-{
-    std::thread t1(save_page, "http://foo");
-    std::thread t2(save_page, "http://bar");
-    t1.join();
-    t2.join();
- 
-    // safe to access g_pages without lock now, as the threads are joined
-    for (const auto &pair : g_pages) {
-        std::cout << pair.first << " => " << pair.second << '\n';
-    }
-}
-\end{lstlisting}
+Tworzenie obiektu mutex za pomocą instrukcji \lstinline{std::mutex g_pages_mutex;} oraz wykorzystanie mutexu w wątku przy pomocy funkcji \lstinline{std::lock_guard<std::mutex> guard(g_pages_mutex);}.
 
 \subsection{Cechy środowiska Hadoop}
 % Przemysław Korytkowski. Duże zbiory danych.
@@ -517,7 +476,7 @@ Dokładność rozwiązywania równań różniczkowych zależy od:
 
 Wśród metod rozwiązywania RR wyróżniamy:
 \begin{itemize}
-    \item metode Eulera
+    \item metodę Eulera
     \item zmodyfikowaną metodę Eulera
     \item udoskonaloną metodę Eulera
     \item rodzinę metod Rungego-Kutty
@@ -529,108 +488,40 @@ Wyróżniamy metody jednokrokowe i wielokrokowe oraz ze stałym krokiem i ze zmi
 \subsection{Wpływ zachowań z obszaru kognitywistyki relacji społecznych na rozwój mediów społecznościowych}
 % Izabela Rejer. Wprowadzenie do kognitywistyki.
 
-Brak informacji na ten temat. Można powiedzieć jaki wpływ media społecznościowe mają na rozwój kognitywistyki (bo dostarczają platformy do wielu badań). Nie wiem jaki ,,zachowania z obszaru kognitywistyki relacji spiłecznych'' miały wpływ na social-media. Nie wiem nawet co to znaczy.
-\question
+Wiedza na temat percepcji ludzi i ich stylów poznawczych może być wykorzystywana w trakcie \textbf{projektowania aplikacji internetowych.}
+
+Aplikacje mogą być przystosowane do odbiorców zwiększając ich zaangażowanie i motywację do korzystania z serwisów. Jednym z środków do badania wizualnych zachowań użytkowników jest \textbf{okulografia}, która może modelować procesy myślowe człowieka.
+
+Innym zastosowaniem badań z kognitywistyki na rozwój sieci społecznościowych było wykorzystanie konceptu \textbf{grywalizacji}. Jednym z takich rozwiązań są liczby polubień, retweetów itd. na platformach społecznościowych.
 
 \subsection{Programowanie przenośnego kodu wielowątkowego na przykładzie PosixThreads}
 % Marek Pałkowski. Obliczenia dużej mocy.
 
 Posix Threads to biblioteka dedykowana do pisania aplikacji wielowątkowych zgodna z językiem C/C++. Jest przenośna, bo działa pod systemami Windows i Linux. Pozwala na tworzenie i kończenie wątków, sychronizacje, blokady, semafory i zmienne warunkowe~\cite{Palkowski_POSIX}.
 
-Do uruchomienia nowego wątku służy funkcja \lstinline{pthread_create} do której przekazujemy wskaźnik na funkcję którą chcemy wykonać oraz parametry wywołania tej funkcji. Możemy oczekiwać na zakączenie wątku przy użyciu \lstinline{pthread_join}, gdzie podajemy identyfikator wątku~\cite{Palkowski_POSIX}.
+Do uruchomienia nowego wątku służy funkcja \lstinline{pthread_create} do której przekazujemy wskaźnik na funkcję którą chcemy wykonać oraz parametry wywołania tej funkcji. Możemy oczekiwać na zakończenie wątku przy użyciu \lstinline{pthread_join}, gdzie podajemy identyfikator wątku~\cite{Palkowski_POSIX}.
 
-\code{Przykład tworzenia i kończenia wątków}
-{Wykład Posix Threads \cite{Palkowski_POSIX}}{\label{kod:przyklad}}
-\begin{lstlisting}[language=C++]
-#include <pthread.h>
-#include <stdio.h>
-#define NUM_THREADS     5
+Zdefiniowanie obiektu wątka \lstinline{pthread_t thread;}. 
 
-void *PrintHello(void *threadid)
-{
-   long tid;
-   tid = (long)threadid;
-   printf("Hello World! It's me, thread #%ld!\n", tid);
-   pthread_exit(NULL);
-}
+Stworzenie wątka \lstinline{rc = pthread_create(&thread, NULL, Function, (void *)funParameter);}.
 
-int main (int argc, char *argv[])
-{
-   pthread_t threads[NUM_THREADS];
-   int rc;
-   long t;
-   for(t=0; t<NUM_THREADS; t++){
-      printf("In main: creating thread %ld\n", t);
-      rc = pthread_create(&threads[t], NULL, PrintHello, (void *)t);
-      if (rc){
-         printf("ERROR; return code from pthread_create() is %d\n", rc);
-         exit(-1);
-      }
-   }
-
-   /* Last thing that main() should do */
-   pthread_exit(NULL);
-}
-\end{lstlisting}
 
 W bibliotece Posix Threads mamy też do dyspozycji obiekty mutex. Jest to mechanizm wzajemnego wykluczania służący do ochrony danych współdzielonych przed jednoczesnymi modyfikacjami. Mechanizm służy do implementacji sekcji krytycznych, semaforów i monitorów. Mutex ma dwa stany: otwarty i zamknięty~\cite{Palkowski_POSIX}.
 
 Zmienne warunkowe są mechanizmem umożliwiającym zawieszanie i zwolnienie czasu procesora (wątku) do momentu, w którym zostanie spełniony określony warunek. Zmienna warunkowa musi być zawsze otoczona obiektem mutex, aby uniknąć jednoczesnej próby oczekiwania i sygnalizowania na zmiennej warunkowej~\cite{Palkowski_POSIX}.
 
-\code{Przykład wykorzystania zmiennych warunkowych i mutexów}
+Stworzenie obiektu mutex: \lstinline{pthread_mutex_t  mutex  =  PTHREAD_MUTEX_INITIALIZER;} oraz wykorzystanie mutexów w wątku poprzez założenie blokady \lstinline{pthread_mutex_lock(&mutex);} i zwolnienie blokady \lstinline{pthread_mutex_unlock(&mutex);}. 
+
+Zmienna warunkowa \lstinline{pthread_cond_t  cond  =  PTHREAD_COND_INITIALIZER;} oraz jej wykorzystanie \lstinline{pthread_cond_wait(&cond,  &mutex);}. 
+
+Inne funkcje to czekania na skończenie wątku, anulowanie i wychodzenie z wątku: 
+
+\code{Inne instrukcje z Posix Threads}
 {Wykład Posix Threads \cite{Palkowski_POSIX}}{\label{kod:przyklad}}
 \begin{lstlisting}[language=C++]
-int  number;
-pthread_mutex_t  mutex  =  PTHREAD_MUTEX_INITIALIZER;
-pthread_cond_t  cond  =  PTHREAD_COND_INITIALIZER;
-void*  RandomThread(void*  arg)
-{
-	srandom(1);
-	for  (int  i=0;  i<20;  i++)
-	{
-		pthread_mutex_lock(&mutex);
-		number  =  static_cast<double>(rand())/RAND_MAX*10;
-		if  (number  <  5)
-		{
-			std::cout  <<  "mniejsza";
-			pthread_cond_broadcast(&cond);
-		}
-		pthread_mutex_unlock(&mutex);
-		sleep(1);
-	}
-}
-
-void*  OutputThread(void*  arg)
-{
-	while  (true)
-	{	
-		pthread_mutex_lock(&mutex);
-		pthread_cond_wait(&cond,  &mutex);
-		std::cout  <<  "Wygenerowana  liczba  -  "  <<  number
-		<<  "  jest  mniejsza  od  5"  <<  std::endl;
-		pthread_mutex_unlock(&mutex);
-	}
-}
-
-int  main()
-{
-	pthread_t  thread1;
-	if  (pthread_create(&thread1,  NULL,  RandomThread,  NULL))
-	{
-		std::cerr  <<  "bład  podczas  tworzenia  watku"  <<  std::endl;
-		exit(1);
-	}
-	pthread_t  thread2;
-	if  (pthread_create(&thread2,  NULL,  OutputThread,  NULL))
-	{
-		std::cerr  <<  "bład  podczas  tworzenia  watku"  <<  std::endl;
-		exit(1);
-	}
-	void*  result;
-	pthread_join(thread1,  &result);
-	pthread_cancel(thread2);
-	pthread_exit(NULL);
-}
+pthread_join(thread1,  &result);
+pthread_cancel(thread2);
+pthread_exit(NULL);
 \end{lstlisting}
 
 \subsection{Zastosowanie okulografii w pięciu wybranych dziedzinach życia}
@@ -647,6 +538,7 @@ Okulografia wykorzystywana jest w:
     \item Motoryzacji - wykrywanie zmęczenia, przy projektowaniu desek rozdzielczych
     \item Interfejsach człowiek komputer - w komunikacji z komputerem 
     \item Medycynie - w diagnostyce (schizofrenia, alzheimer, autyzm, ADHD, parkinson), w leczeniu
+    \item Sporcie - do podnoszenia sprawności zawodników (koordynacji wzrokowo-ruchowej).
 \end{enumerate}
 
 \section{Inteligencja obliczeniowa}
