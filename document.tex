@@ -1068,7 +1068,7 @@ gdzie:
 \item[\gamma] ustala kompromis pomiędzy dopasowaniem, a złożonością.
 \end{description}
 
-Regularyzacja to modyfikacja modelu, np. przez dodanie kary za złożoność, która ma na celu zmniejszenie błędu testowego zapobiegając zjawisku przeuczenia \cite{wiki:Regularization}.
+Regularyzacja to modyfikacja modelu, np. przez dodanie kary za złożoność, która ma na celu zmniejszenie błędu testowego \textbf{zapobiegając zjawisku przeuczenia} \cite{wiki:Regularization}.
 
 Regularyzacja jest konieczna gdy:
 
@@ -1079,9 +1079,9 @@ Regularyzacja jest konieczna gdy:
 \end{itemize}
 \question
 
-\textbf{Regularyzacja typu $L^1$ (lasso)} w modelach klasyfikacyjnych i regresyjnych stosujemy aby poprawić własności numeryczne algorytmów oraz gdy zależy nam na selekcji zmiennych w trakcie uczenia. Modele z taką regularyzacją są rzadkie, to znaczy, współczynniki przy wielu atrybutach są zerowe. Jest to zjawisko dobre w przypadku, gdy chcemy dokonać selekcji zmiennych -- mało jest atrybutów istotnych i dużo szumu.
+\textbf{Regularyzacja typu $L^1$ (lasso)} (regularyzacja wartością bezwzględną) w modelach klasyfikacyjnych i regresyjnych stosujemy aby poprawić własności numeryczne algorytmów oraz gdy zależy nam na selekcji zmiennych w trakcie uczenia. Modele z taką regularyzacją są rzadkie, to znaczy, współczynniki przy wielu atrybutach są zerowe. Jest to zjawisko dobre w przypadku, gdy chcemy dokonać selekcji zmiennych -- mało jest atrybutów istotnych i dużo szumu.
 
-\textbf{Regularyzacja typu $L^2$ (ridge)} w modelach klasyfikacyjnych i regresyjnych również stosujemy aby poprawić własności numeryczne algorytmów oraz w przypadkach, gdy dane zawierają wiele zmiennych skorelowanych.
+\textbf{Regularyzacja typu $L^2$ (ridge)} (regularyzacja kwadratem) w modelach klasyfikacyjnych i regresyjnych również stosujemy aby poprawić własności numeryczne algorytmów oraz w przypadkach, gdy dane zawierają wiele zmiennych skorelowanych.
 
 Model ElasticNet łączy regularyzację $L^1$ oraz regularyzację $L^2$ \cite{wiki:Elastic_net_regularization}. 
 
